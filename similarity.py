@@ -37,26 +37,26 @@ class Similarity:
         self.model = SentenceTransformer(model_name, device=self.device)
 
 
-    def train(self, triplet_json="Triplets.json", epochs=10, out_dir="models/camembert_mnr_v1"):
-        data = json.load(open(triplet_json, encoding="utf-8"))
+    # def train(self, triplet_json="Triplets.json", epochs=10, out_dir="models/camembert_mnr_v1"):
+    #     data = json.load(open(triplet_json, encoding="utf-8"))
 
-        pairs = []
-        for item in data:
-            anchor = item["question"]
-            for pos in item["positive"]:
-                pairs.append(InputExample(texts=[anchor, pos]))
+    #     pairs = []
+    #     for item in data:
+    #         anchor = item["question"]
+    #         for pos in item["positive"]:
+    #             pairs.append(InputExample(texts=[anchor, pos]))
 
-        train_loader = DataLoader(pairs, shuffle=True, batch_size=self.batch_size)
-        train_loss   = MultipleNegativesRankingLoss(self.model)
+    #     train_loader = DataLoader(pairs, shuffle=True, batch_size=self.batch_size)
+    #     train_loss   = MultipleNegativesRankingLoss(self.model)
 
-        self.model.fit(
-            train_objectives=[(train_loader, train_loss)],
-            epochs=epochs,
-            show_progress_bar=True,
-            output_path=out_dir
-        )
-        # recharge le modèle fine-tuné
-        self.model = SentenceTransformer(out_dir, device=self.device)
+    #     self.model.fit(
+    #         train_objectives=[(train_loader, train_loss)],
+    #         epochs=epochs,
+    #         show_progress_bar=True,
+    #         output_path=out_dir
+    #     )
+    #     # recharge le modèle fine-tuné
+    #     self.model = SentenceTransformer(out_dir, device=self.device)
 
     
 

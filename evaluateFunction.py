@@ -30,9 +30,9 @@ sentences = preproc.build_cahier_df()
 
 
 sim       = Similarity(batch_size=32)  
-sim.train()
-sim = Similarity(model_name="models/camembert_mnr_v1",
-                 batch_size=32)   
+# sim.train()
+# sim = Similarity(model_name="models/camembert_mnr_v1",
+#                  batch_size=32)   
 
 matches   = sim.top_k_matches(
     questions=df["response"].tolist(),
@@ -135,7 +135,7 @@ sentences_used=[]
 results_for_json = []
 for title, group in matchesSentences.groupby('question_title'):
     max_score = group['score'].max()
-    threshold = 1
+    threshold = 0.4
     close_matches = group[(group['score'] >= max_score - threshold) & (group['score'] <= max_score + threshold)].sort_values('score', ascending=False)
     close_matches = close_matches.drop_duplicates(subset=["sentence"])
     # print(f"\n--- {title} (top score: {max_score:.3f}) ---")
@@ -165,7 +165,7 @@ if title == titles[-1]:
     with open("results/all_matches.json", "w", encoding="utf-8") as f:
         json.dump(results_for_json, f, ensure_ascii=False, indent=2)
     json_content_str = json.dumps(results_for_json, ensure_ascii=False)
-
+    conn.execute_query('''delete from ResultatsJSON where filename = ?''', ("all_matches.json",))
     conn.execute_query('''
     INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
 ''', ("all_matches.json", json_content_str))
@@ -194,7 +194,8 @@ with open("results/not_matched.json", "w", encoding="utf-8") as f:
     json.dump(to_use, f, ensure_ascii=False, indent=2)
 json_content_str = json.dumps(to_use, ensure_ascii=False)
 
-# Insertion dans la base de données via ta méthode `execute_query`
+conn.execute_query('''delete from ResultatsJSON where filename = ?''', ("not_matched.json",))
+
 conn.execute_query('''
     INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
 ''', ("not_matched.json", json_content_str))

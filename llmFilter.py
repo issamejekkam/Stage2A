@@ -10,42 +10,90 @@ llm = Llama(
     verbose=False
 )
 
-def choose_best_pair(pairs: list[dict]) -> int:
+from llama_cpp import Llama
+from textwrap import dedent
+
+llm = Llama(
+    model_path="models/Phi-3-mini-4k-instruct-q4.gguf",
+    n_ctx=2048,
+    verbose=False
+)
+
+# Mots-clés discriminants par grand thème – à adapter librement
+KEYWORDS = {
+    "Formation de base":          ["AFP", "CFC", "Bachelor", "Master", "doctorat", "université", "HES", "ES"],
+    "Formation complémentaire":   ["complémentaire", "brevet", "CAS", "DAS", "MAS", "formations continues"],
+    "Durée":                      ["0", "1", "2", "3", "4", "5", "6", "7", "8", "ans", "année"],
+    "Nature":                     ["expérience", "préalable", "même type"],
+    "Autonomie de décision":      ["consignes", "directives", "autonome", "approuve", "initiative"],
+    "Responsabilités budgétaires":["budget", "financier", "facturation", "paiements", "suivi"],
+    # "Responsabilités de planification à court terme":
+    #                                 ["court terme", "plan", "optimisation", "procédure"],
+    # "Responsabilités de planification à long terme":
+    #                                 ["long terme", "prospective", "anticiper", "recherches", "études"],
+    # "Impact externe des prestations":
+    #                                 ["image", "représentatif", "conséquences", "tiers"],
+    # "Impact interne des prestations":
+    #                                 ["coûts", "bon fonctionnement", "irréversibles"],
+    # "Connaissances linguistiques":["français", "langue", "bilingue", "trilingue"],
+    # "Nature des communications internes":["communications", "échanges", "négociations", "décisions"],
+    # "Nature des communications externes":["communications", "informer", "explication", "négociations"],
+    # "Complexité de l'environnement":["difficultés", "adaptabilité", "flexibilité"],
+    # "Evolution de l'environnement":["évolution", "processus", "rapide"],
+    # "Diversité des missions":     ["missions", "tâches", "diverses"],
+    # "Diversité et quantité des postes à gérer":
+    #                                 ["poste", "gère", "grand nombre", "activités"],
+    # "Rôle dans la gestion des ressources humaines":
+    #                                 ["animation", "conduite", "recrutement", "formation"],
+    # "Innovation":                 ["adapter", "créer", "innovatrice", "concepts"]
+}
+
+def choose_best_pair(title: str, pairs: list[dict]) -> int:
     """
-    Donne une liste de paires {'question': ..., 'sentence': ...}
-    Retourne l’indice de la meilleure paire selon le LLM
+    Utilise un prompt riche en contraintes + mots-clés pour forcer la sélection correcte.
+    Retourne l’indice (0-based) du meilleur couple question-réponse.
     """
-    prompt = """Tu es un expert en ressources humaines et en analyse de cahier des charges.
+    # 🔑 Récupère les mots-clés pertinents, sinon liste vide
+    kw = ", ".join(KEYWORDS.get(title, []))
 
-    Ta tâche est de lire chaque question, puis d’évaluer laquelle des phrases proposées y répond correctement de façon explicite, précise et complète.
+    prompt = dedent(f"""
+    Tu es évaluateur·trice RH, spécialiste du référentiel ANMEA.
 
-    Attention :
-    - Ne choisis pas une phrase simplement "proche" ou "vaguement liée".
-    - Ne choisis qu’une phrase qui **contient l'information exigée par la question**.
-    - Ignore les phrases trop générales, vagues ou hors sujet.
-    - les phrases courtes pouvant exprimer des titres comme "formation professionnelle requises,Formation et expériences professionnelles requises, experiences professionnelles, compétences requises" ne sont pas pertinentes, et doivent pas etre prise en consideration.
-    - fais attention aux mots cles qui peuvent repondent le plus aux questions comme "afp,hes,cfc,complémentaire...
-    - donne plus d'importance aux phrases qui contiennent des verbes
-    Réponds uniquement avec **le numéro** de la phrase correcte.
+    TÂCHE :
+      • Pour chaque couple question / phrase candidate, choisis la **SEULE** phrase qui répond
+        parfaitement et explicitement à la question.
+      • Ne retiens pas les phrases génériques, incomplètes ou hors-sujet.
+      • Ignore les phrases très courtes du type ‘Formation professionnelle requise’,
+        ‘Compétences requises’, etc.
+      • Accorde davantage de poids :
+          – aux occurrences précises de mots-clés importants dans la phrase (pas la question): {kw if kw else ''}.
+          – aux phrases contenant des verbes d’action pertinents.
+      • Ta réponse doit être **un nombre entier unique** correspondant au bon choix.
 
-    Voici les paires question - phrase :
-    """
-    for i, pair in enumerate(pairs):
-        prompt += f"{i+1}. Question : {pair['question']}\n   Phrase : {pair['sentence']}\n\n"
+    LISTE DES COUPLES :
+    """).strip() + "\n\n"
 
-    prompt += "Réponds uniquement avec le chiffre du choix le plus pertinent."
+    for i, pr in enumerate(pairs, 1):
+        prompt += f"{i}. QUESTION : {pr['question']}\n   PHRASE   : {pr['sentence']}\n\n"
 
-    output = llm.create_chat_completion(
+    prompt += "Réponds uniquement avec le chiffre du meilleur choix."
+
+    # Appel modèle
+    out = llm.create_chat_completion(
         messages=[{"role": "user", "content": prompt}],
         max_tokens=5,
         temperature=0.1
     )
-    reply = output["choices"][0]["message"]["content"].strip()
-    print(f"→ LLM a répondu : {reply}")
+    reply = out["choices"][0]["message"]["content"].strip()
+    print(f"→ LLM a reçu le prompt :\n{prompt}")  # logging
+
+    print(f"→ LLM a répondu : '{reply}'")  # logging
+
     try:
-        return int(reply) - 1
-    except:
-        return 0  # fallback en cas d’erreur
+        return int(reply) - 1            # conversion 1-based → 0-based
+    except Exception:
+        return 0                         # fallback sûr
+
 
 
 
@@ -66,7 +114,7 @@ for title in titles:
     group = df_matches[df_matches["title"] == title]
     pairs = group[["question", "sentence", "score", "pts"]].to_dict("records")
 
-    best_idx = choose_best_pair(pairs)
+    best_idx = choose_best_pair(title,pairs)
     if 0 <= best_idx < len(pairs):
         best = pairs[best_idx]
         results.append({
