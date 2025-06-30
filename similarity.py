@@ -7,6 +7,8 @@ import torch
 from needed import return_train_loader
 from torch.utils.data import DataLoader
 from sentence_transformers import SentenceTransformer, losses,InputExample
+from sentence_transformers.losses import TripletLoss, MultipleNegativesRankingLoss
+
 
 import json
 from torch.utils.data import DataLoader
@@ -35,38 +37,25 @@ class Similarity:
         self.model = SentenceTransformer(model_name, device=self.device)
 
 
-    def train(self,
-              triplet_path: str = "Triplets.json",
-              epochs: int = 2,
-              out_dir: str = "models/camembert_triplet_v1") -> None:
-        """Fine-tuning TripletLoss à partir d’un fichier JSON de triplets."""
+    def train(self, triplet_json="Triplets.json", epochs=10, out_dir="models/camembert_mnr_v1"):
+        data = json.load(open(triplet_json, encoding="utf-8"))
 
+        pairs = []
+        for item in data:
+            anchor = item["question"]
+            for pos in item["positive"]:
+                pairs.append(InputExample(texts=[anchor, pos]))
 
-
-        # -------- Charger les triplets
-        triplets = json.load(open(triplet_path, encoding="utf-8"))
-        train_examples = [
-            InputExample(texts=t, label=1.0) for t in triplets
-        ]
-
-        train_loader = DataLoader(train_examples,
-                                  shuffle=True,
-                                  batch_size=32)
-        train_loss   = losses.TripletLoss(self.model)
-
-        warmup_steps = int(len(train_loader) * epochs * 0.1)
+        train_loader = DataLoader(pairs, shuffle=True, batch_size=self.batch_size)
+        train_loss   = MultipleNegativesRankingLoss(self.model)
 
         self.model.fit(
             train_objectives=[(train_loader, train_loss)],
             epochs=epochs,
-            warmup_steps=warmup_steps,
             show_progress_bar=True,
-            output_path=out_dir,
-            checkpoint_path="checkpoints",
-            checkpoint_save_steps=500
+            output_path=out_dir
         )
-
-        # Recharge le modèle fine-tuné pour l’inférence
+        # recharge le modèle fine-tuné
         self.model = SentenceTransformer(out_dir, device=self.device)
 
     

@@ -8,6 +8,8 @@ from io import BytesIO
 from pretraitement import Pretraitement
 from database import database
 from similarity import Similarity
+import json
+from sentence_transformers import SentenceTransformer, losses,InputExample
 
 
 conn=database("data.db")
@@ -28,7 +30,10 @@ sentences = preproc.build_cahier_df()
 
 
 sim       = Similarity(batch_size=32)  
-sim.train()   
+sim.train()
+sim = Similarity(model_name="models/camembert_mnr_v1",
+                 batch_size=32)   
+
 matches   = sim.top_k_matches(
     questions=df["response"].tolist(),
     corpus_sentences=sentences["sentence"].tolist(),
@@ -38,7 +43,7 @@ matches   = sim.top_k_matches(
 
 
 matches.to_excel("results/Test5Results.xlsx", index=False)
-print("✅  Fichier 'Test5Results.xlsx' généré !")
+# print("✅  Fichier 'Test5Results.xlsx' généré !")
 matches_no_duplicates = matches.drop_duplicates(subset=["question_title", "sentence"])
 
 cols_to_drop = [col for col in ["score", "rank", "label"] if col in matches_no_duplicates.columns]
@@ -95,9 +100,21 @@ titles = [
     "Rôle dans la gestion des ressources humaines"
 ]
 all_matches = []
+
+banned=set()
+# Read a JSON file (example: 'input.json')
+with open('Triplets.json', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+for item in data:
+    banned.update(item["negatives"])
+
+
+
 for title in titles:
     questions = df[df["title"] == title]["response"].tolist()
+
     corpus_sentences = mappingSentencized.get(title, [])
+    corpus_sentences = [s for s in corpus_sentences if s not in banned]
     if questions and corpus_sentences:
         matches = sim.top_k_matches(
             questions=questions,
@@ -109,7 +126,7 @@ for title in titles:
 
 matchesSentences = pd.concat(all_matches, ignore_index=True)
 matchesSentences.to_excel("results/Test5Resultslatest.xlsx", index=False)
-print("✅  Fichier 'Test5Resultslatest.xlsx' généré !")
+# print("✅  Fichier 'Test5Resultslatest.xlsx' généré !")
 
 import json
 
@@ -121,7 +138,7 @@ for title, group in matchesSentences.groupby('question_title'):
     threshold = 0.03
     close_matches = group[(group['score'] >= max_score - threshold) & (group['score'] <= max_score + threshold)].sort_values('score', ascending=False)
     close_matches = close_matches.drop_duplicates(subset=["sentence"])
-    print(f"\n--- {title} (top score: {max_score:.3f}) ---")
+    # print(f"\n--- {title} (top score: {max_score:.3f}) ---")
     
 
 
@@ -130,9 +147,9 @@ for title, group in matchesSentences.groupby('question_title'):
             sentences_used.append(row['sentence'])
         pts_value = df.loc[df["response"] == row["question"], "pts"]
 
-        print(f"Score: {row['score']:.3f}\nQuestion: {row['question']}\nSentence: {row['sentence']}\n")
-        print(f"pts: {pts_value.values[0]}")
-        print("-" * 80)
+        # print(f"Score: {row['score']:.3f}\nQuestion: {row['question']}\nSentence: {row['sentence']}\n")
+        # print(f"pts: {pts_value.values[0]}")
+        # print("-" * 80)
 
         results_for_json.append({
             "title": title,
@@ -160,17 +177,17 @@ for i in mappingSentencized:
     for j in mappingSentencized[i]:
         if j not in sentences:
             sentences.append(j)
-print("Total unique sentences:", len(sentences))
-print("\n",sentences)
-print("Total sentences used:", len(sentences_used))
-print("\n",sentences_used)
+# print("Total unique sentences:", len(sentences))
+# print("\n",sentences)
+# print("Total sentences used:", len(sentences_used))
+# print("\n",sentences_used)
 
 
 to_use = [s for s in sentences if s not in sentences_used]
-print("Total sentences not used:", len(to_use))
-for s in to_use:
-    if len(s) > 2:
-        print(s)
+# print("Total sentences not used:", len(to_use))
+# for s in to_use:
+#     if len(s) > 2:
+#         print(s)
 
 with open("results/not_matched.json", "w", encoding="utf-8") as f:
     json.dump(to_use, f, ensure_ascii=False, indent=2)
