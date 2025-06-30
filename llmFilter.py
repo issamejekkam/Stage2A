@@ -138,7 +138,7 @@ with open("results/after_llm.json", "w", encoding="utf-8") as f:
     json.dump(results, f, ensure_ascii=False, indent=2)
 
     json_content_str = json.dumps(results, ensure_ascii=False)
-
+    data.execute_query('''DELETE FROM ResultatsJSON WHERE filename = ?''', ("after_llm.json",))
     data.execute_query('''
     INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
 ''', ("after_llm.json", json_content_str))
