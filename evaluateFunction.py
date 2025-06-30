@@ -169,6 +169,7 @@ if title == titles[-1]:
     conn.execute_query('''
     INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
 ''', ("all_matches.json", json_content_str))
+    conn.commit()
 
 
 
@@ -198,6 +199,7 @@ conn.execute_query('''
     INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
 ''', ("not_matched.json", json_content_str))
 
+conn.commit()
 
 
 
@@ -218,3 +220,5 @@ conn.execute_query('''
 
 
 
+
+conn.close()

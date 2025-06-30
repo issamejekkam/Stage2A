@@ -63,3 +63,15 @@ class database:
             return ""  
 
 
+    def read_json(self, filename):
+        """
+        Lit un fichier JSON depuis la base de données et le retourne sous forme de DataFrame.
+        """
+        record = self.execute_query('SELECT json_content FROM ResultatsJSON WHERE filename = ?', (filename,))
+        
+        if record:
+            json_content = record[0]
+            return pd.read_json(BytesIO(json_content))
+        else:
+            print(f"⚠️ Fichier '{filename}' non trouvé dans la base de données.")
+            return pd.DataFrame()

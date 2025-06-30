@@ -1,6 +1,7 @@
 from llama_cpp import Llama
 import json
 import pandas as pd
+from database import database
 
 # Charger le modèle local
 llm = Llama(
@@ -22,7 +23,7 @@ def choose_best_pair(pairs: list[dict]) -> int:
     - Ne choisis pas une phrase simplement "proche" ou "vaguement liée".
     - Ne choisis qu’une phrase qui **contient l'information exigée par la question**.
     - Ignore les phrases trop générales, vagues ou hors sujet.
-    - les phrases courtes pouvant exprimer des titres comme "formation professionnelle requises, experiences professionnelles, compétences requises" ne sont pas pertinentes, et doivent pas etre prise en consideration.
+    - les phrases courtes pouvant exprimer des titres comme "formation professionnelle requises,Formation et expériences professionnelles requises, experiences professionnelles, compétences requises" ne sont pas pertinentes, et doivent pas etre prise en consideration.
     - fais attention aux mots cles qui peuvent repondent le plus aux questions comme "afp,hes,cfc,complémentaire...
     - donne plus d'importance aux phrases qui contiennent des verbes
     Réponds uniquement avec **le numéro** de la phrase correcte.
@@ -46,8 +47,14 @@ def choose_best_pair(pairs: list[dict]) -> int:
     except:
         return 0  # fallback en cas d’erreur
 
-# Charger les résultats
-df_matches = pd.read_json("results/all_matches.json")
+
+
+data=database("data.db")
+data.connect()
+df_matches=data.readjson("all_matches.json")
+
+# Filtrer les lignes dont la phrase contient "Formation et expériences professionnelles requises"
+df_matches = df_matches[~df_matches["sentence"].str.contains("Formation et expériences professionnelles requises", case=False, na=False)]
 
 # Liste des titres uniques
 titles = df_matches["title"].unique()
@@ -73,3 +80,11 @@ for title in titles:
 # Sauvegarde dans after_llm.json
 with open("results/after_llm.json", "w", encoding="utf-8") as f:
     json.dump(results, f, ensure_ascii=False, indent=2)
+
+    json_content_str = json.dumps(results, ensure_ascii=False)
+
+    data.execute_query('''
+    INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
+''', ("after_llm.json", json_content_str))
+    data.commit()
+data.close()
