@@ -51,7 +51,7 @@ def choose_best_pair(pairs: list[dict]) -> int:
 
 data=database("data.db")
 data.connect()
-df_matches=data.readjson("all_matches.json")
+df_matches=data.read_json("all_matches.json")
 
 # Filtrer les lignes dont la phrase contient "Formation et expériences professionnelles requises"
 df_matches = df_matches[~df_matches["sentence"].str.contains("Formation et expériences professionnelles requises", case=False, na=False)]

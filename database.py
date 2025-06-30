@@ -71,7 +71,28 @@ class database:
         
         if record:
             json_content = record[0]
-            return pd.read_json(BytesIO(json_content))
+            from io import StringIO  # et non BytesIO
+
+            return pd.read_json(StringIO(json_content))
         else:
             print(f"⚠️ Fichier '{filename}' non trouvé dans la base de données.")
             return pd.DataFrame()
+        
+    def commit(self):
+        """
+        Commit les changements dans la base de données.
+        """
+        if self.connection:
+            self.connection.commit()
+        else:
+            raise Exception("Database connection is not established.")
+    
+    def close(self):
+        """
+        Ferme la connexion à la base de données.
+        """
+        if self.connection:
+            self.connection.close()
+            self.connection = None
+        else:
+            raise Exception("Database connection is not established.")
