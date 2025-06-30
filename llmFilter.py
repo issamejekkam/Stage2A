@@ -25,7 +25,7 @@ KEYWORDS = {
     "Formation complémentaire":   ["complémentaire", "brevet", "CAS", "DAS", "MAS", "formations continues"],
     "Durée":                      ["0", "1", "2", "3", "4", "5", "6", "7", "8", "ans", "année"],
     "Nature":                     ["expérience", "préalable", "même type"],
-    "Autonomie de décision":      ["consignes", "directives", "autonome", "approuve", "initiative"],
+    "Autonomie de décision":      ["consignes", "directives", "autonome", "approuve"],
     "Responsabilités budgétaires":["budget", "financier", "facturation", "paiements", "suivi"],
     # "Responsabilités de planification à court terme":
     #                                 ["court terme", "plan", "optimisation", "procédure"],
@@ -62,11 +62,12 @@ def choose_best_pair(title: str, pairs: list[dict]) -> int:
     TÂCHE :
       • Pour chaque couple question / phrase candidate, choisis la **SEULE** phrase qui répond
         parfaitement et explicitement à la question.
+      •  prends en meilleure choix le couple ayant comme phrases contenant les mots-clés importants suivants: {kw if kw else ''}. 
       • Ne retiens pas les phrases génériques, incomplètes ou hors-sujet.
       • Ignore les phrases très courtes du type ‘Formation professionnelle requise’,
         ‘Compétences requises’, etc.
       • Accorde davantage de poids :
-          – aux occurrences précises de mots-clés importants dans la phrase (pas la question): {kw if kw else ''}.
+          
           – aux phrases contenant des verbes d’action pertinents.
       • Ta réponse doit être **un nombre entier unique** correspondant au bon choix.
 
@@ -104,6 +105,11 @@ df_matches=data.read_json("all_matches.json")
 # Filtrer les lignes dont la phrase contient "Formation et expériences professionnelles requises"
 df_matches = df_matches[~df_matches["sentence"].str.contains("Formation et expériences professionnelles requises", case=False, na=False)]
 
+df_matches = df_matches[~df_matches["sentence"].str.contains("Activités et responsabilités principales", case=False, na=False)]
+
+df_matches = df_matches[~df_matches["sentence"].str.contains("Responsable hiérarchique direct", case=False, na=False)]
+
+
 # Liste des titres uniques
 titles = df_matches["title"].unique()
 
@@ -112,6 +118,8 @@ results = []
 
 for title in titles:
     group = df_matches[df_matches["title"] == title]
+    MAX_PAIRS = 10
+    group = group.sort_values("score", ascending=False).head(MAX_PAIRS)
     pairs = group[["question", "sentence", "score", "pts"]].to_dict("records")
 
     best_idx = choose_best_pair(title,pairs)
