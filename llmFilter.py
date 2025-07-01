@@ -3,9 +3,10 @@ import json
 import pandas as pd
 from database import database
 
-
+import sys
 
 from textwrap import dedent
+# from evaluateFunction import main as run_eval
 
 llm = Llama(
     model_path="models/Phi-3-mini-4k-instruct-q4.gguf",
@@ -48,6 +49,7 @@ def choose_best_pair(title: str, pairs: list[dict]) -> int:
     Retourne l’indice (0-based) du meilleur couple question-réponse.
     """
     # 🔑 Récupère les mots-clés pertinents, sinon liste vide
+    
     kw = ", ".join(KEYWORDS.get(title, []))
 
     prompt = dedent(f"""
@@ -89,51 +91,51 @@ def choose_best_pair(title: str, pairs: list[dict]) -> int:
     except Exception:
         return 0                         # fallback sûr
 
-def main(docx_file=None):
-    import sys
+# CahierCharge = sys.argv[1] if len(sys.argv) > 1 else ""
+# run_eval(CahierCharge)
 
-    data=database("data.db")
-    data.connect()
-
-    CahierCharge = docx_file if docx_file else (sys.argv[1] if len(sys.argv) > 1 else "")
+# data=database("data.db")
+# data.connect()
 
 
-    df_matches=data.read_json(f"all_matches_of_{CahierCharge}.json")
-
-    # Filtrer les lignes dont la phrase contient "Formation et expériences professionnelles requises"
 
 
-    # Liste des titres uniques
-    titles = df_matches["title"].unique()
+# df_matches=data.read_json(f"all_matches_of_{CahierCharge}.json")
 
-    # Résultats finaux
-    results = []
+# # Filtrer les lignes dont la phrase contient "Formation et expériences professionnelles requises"
 
-    for title in titles:
-        group = df_matches[df_matches["title"] == title]
-        MAX_PAIRS = 10
-        group = group.sort_values("score", ascending=False).head(MAX_PAIRS)
-        pairs = group[["question", "sentence", "score", "pts"]].to_dict("records")
 
-        best_idx = choose_best_pair(title,pairs)
-        if 0 <= best_idx < len(pairs):
-            best = pairs[best_idx]
-            results.append({
-                "title": title,
-                "question": best["question"],
-                "sentence": best["sentence"],
-                "score": best["score"],
-                "pts": best["pts"]
-            })
+# # Liste des titres uniques
+# titles = df_matches["title"].unique()
 
-    # Sauvegarde dans after_llm.json
-    with open(f"results/after_llm_of_{CahierCharge}.json", "w", encoding="utf-8") as f:
-        json.dump(results, f, ensure_ascii=False, indent=2)
+# # Résultats finaux
+# results = []
 
-        json_content_str = json.dumps(results, ensure_ascii=False)
-        data.execute_query('''DELETE FROM ResultatsJSON WHERE filename = ?''', (f"after_llm_of_{CahierCharge}.json",))
-        data.execute_query('''
-        INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
-    ''', (f"after_llm_of_{CahierCharge}.json", json_content_str))
-        data.commit()
-    data.close()
+# for title in titles:
+#     group = df_matches[df_matches["title"] == title]
+#     MAX_PAIRS = 10
+#     group = group.sort_values("score", ascending=False).head(MAX_PAIRS)
+#     pairs = group[["question", "sentence", "score", "pts"]].to_dict("records")
+
+#     best_idx = choose_best_pair(title,pairs)
+#     if 0 <= best_idx < len(pairs):
+#         best = pairs[best_idx]
+#         results.append({
+#             "title": title,
+#             "question": best["question"],
+#             "sentence": best["sentence"],
+#             "score": best["score"],
+#             "pts": best["pts"]
+#         })
+
+# # Sauvegarde dans after_llm.json
+# with open(f"results/after_llm_of_{CahierCharge}.json", "w", encoding="utf-8") as f:
+#     json.dump(results, f, ensure_ascii=False, indent=2)
+
+#     json_content_str = json.dumps(results, ensure_ascii=False)
+#     data.execute_query('''DELETE FROM ResultatsJSON WHERE filename = ?''', (f"after_llm_of_{CahierCharge}.json",))
+#     data.execute_query('''
+#     INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
+# ''', (f"after_llm_of_{CahierCharge}.json", json_content_str))
+#     data.commit()
+# data.close()

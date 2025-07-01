@@ -1,222 +1,244 @@
+# ─────────────────────────────────────────────────────────────────────────────
+# 1. IMPORTS
+# ─────────────────────────────────────────────────────────────────────────────
 import os
-import pandas as pd
-import sqlite3
-from docx import Document
 import sys
+import json
+import sqlite3
 from io import BytesIO
+from textwrap import dedent
+
+import pandas as pd
+import spacy
+from docx import Document
+from llama_cpp import Llama
+from sentence_transformers import SentenceTransformer, losses, InputExample
 
 from pretraitement import Pretraitement
-from database import database
-from similarity import Similarity
-import json
-import spacy
-from sentence_transformers import SentenceTransformer, losses,InputExample
+from database      import database
+from similarity    import Similarity
 
-def main(docx_file=None):
-    conn=database("data.db")
-    conn.connect()
-    CahierChargeName = docx_file
+# ─────────────────────────────────────────────────────────────────────────────
+# 2. CONSTANTES GLOBALES
+# ─────────────────────────────────────────────────────────────────────────────
+SPACY_MODEL = "fr_core_news_md"
+DB_PATH     = "data.db"
+MODEL_PATH  = "models/Phi-3-mini-4k-instruct-q4.gguf"
+TRIPLETS    = "Triplets.json"
 
-    df = conn.readQuestionnaire()
-    CahierCharge = conn.readCahierDeCharges(CahierChargeName)
+KEYWORDS = {
+    "Formation de base":          ["AFP", "CFC", "Bachelor", "Master", "doctorat", "université", "HES", "ES"],
+    "Formation complémentaire":   ["complémentaire", "brevet", "CAS", "DAS", "MAS", "formations continues"],
+    "Durée":                      [str(i) for i in range(9)] + ["ans", "année"],
+    "Nature":                     ["expérience", "préalable", "même type"],
+    "Autonomie de décision":      ["consignes", "directives", "autonome", "approuve"],
+    "Responsabilités budgétaires":["budget", "financier", "facturation", "paiements", "suivi"],
+    #...
+}
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 3. FONCTIONS UTILITAIRES
+# ─────────────────────────────────────────────────────────────────────────────
+def contains_verb(text):
+    """Renvoie True si on détecte au moins un VERB ou AUX dans le texte."""
+    doc = nlp(text)
+    return any(token.pos_ in {"VERB", "AUX"} for token in doc)
+
+def choose_best_pair(title: str, pairs: list[dict]) -> int:
+    """
+    Utilise un prompt riche en contraintes + mots-clés pour forcer la sélection correcte.
+    Retourne l’indice (0-based) du meilleur couple question-réponse.
+    """
+    kw = ", ".join(KEYWORDS.get(title, []))
+    prompt = dedent(f"""
+    Tu es évaluateur·trice RH, spécialiste du référentiel ANMEA.
+
+    TÂCHE :
+      • Pour chaque couple question / phrase candidate, choisis la **SEULE** phrase qui répond
+        parfaitement et explicitement à la question.
+      • prends en meilleur choix le couple ayant comme phrases contenant les mots-clés importants suivants: {kw if kw else ''}.
+      • Ignore les phrases très courtes du type ‘Formation professionnelle requise’,
+        ‘Compétences requises’, etc.
+      • Accorde davantage de poids aux phrases contenant des verbes d’action pertinents.
+    
+    LISTE DES COUPLES :
+    """).strip() + "\n\n"
+
+    for i, pr in enumerate(pairs, 1):
+        prompt += f"{i}. QUESTION : {pr['question']}\n   PHRASE   : {pr['sentence']}\n\n"
+    prompt += "Réponds uniquement avec le chiffre du meilleur choix."
+
+    out   = llm.create_chat_completion(
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=5,
+        temperature=0.1
+    )
+    reply = out["choices"][0]["message"]["content"].strip()
+    print(f"→ LLM a reçu le prompt :\n{prompt}")
+    print(f"→ LLM a répondu : '{reply}'")
+
+    try:
+        return int(reply) - 1
+    except:
+        return 0
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 4. INITIALISATIONS
+# ─────────────────────────────────────────────────────────────────────────────
+nlp = spacy.load(SPACY_MODEL)
+
+conn = database(DB_PATH)
+conn.connect()
+
+llm = Llama(
+    model_path=MODEL_PATH,
+    n_ctx=2048,
+    verbose=False
+)
+
+# ─────────────────────────────────────────────────────────────────────────────
+# 5. MAIN
+# ─────────────────────────────────────────────────────────────────────────────
+def main():
+    # 5.1. Récupérer l’argument
+    CahierChargeName = sys.argv[1] if len(sys.argv) > 1 else ""
+    
+    # 5.2. Charger données
+    df          = conn.readQuestionnaire()
+    CahierCharge= conn.readCahierDeCharges(CahierChargeName)
     questionnaire = df
 
-
+    # 5.3. Prétraitement
     preproc = Pretraitement(CahierCharge, questionnaire)
     preproc._load_spacy()
-    df= preproc.load_questionnaire()
-    df=preproc.keep_abcd_lines(df)
-
+    df_q = preproc.load_questionnaire()
+    df_q = preproc.keep_abcd_lines(df_q)
     sentences = preproc.build_cahier_df()
 
-
-    sim       = Similarity(batch_size=32)  
-    # sim.train()
-    # sim = Similarity(model_name="models/camembert_mnr_v1",
-    #                  batch_size=32)   
-
-    matches   = sim.top_k_matches(
-        questions=df["response"].tolist(),
+    # 5.4. Top-k matches initial
+    sim = Similarity(batch_size=32)
+    matches = sim.top_k_matches(
+        questions=df_q["response"].tolist(),
         corpus_sentences=sentences["sentence"].tolist(),
         k=5,
-        question_titles=df["title"].tolist(),
+        question_titles=df_q["title"].tolist(),
     )
+    matches = matches.drop_duplicates(subset=["question_title", "sentence"])
+    to_drop = [c for c in ["score", "rank", "label"] if c in matches]
+    if to_drop:
+        matches.drop(columns=to_drop, inplace=True)
 
-
-
-    matches_no_duplicates = matches.drop_duplicates(subset=["question_title", "sentence"])
-
-    cols_to_drop = [col for col in ["score", "rank", "label"] if col in matches_no_duplicates.columns]
-    if cols_to_drop:
-        matches_no_duplicates.drop(columns=cols_to_drop, inplace=True)
-
-    mapping={}
-    for i, row in matches_no_duplicates.iterrows():
-        question_title = row["question_title"]
-        sentence = row["sentence"]
-        if question_title not in mapping:
-            mapping[question_title] = []
-        mapping[question_title].append(sentence)
+    # Map question_title → phrases
+    mapping = {}
+    for _, row in matches.iterrows():
+        mapping.setdefault(row["question_title"], []).append(row["sentence"])
 
     rows = []
-    for title, sentences in mapping.items():
-        for sentence in sentences:
-            rows.append({'title': title, 'sentence': sentence})
+    for title, sents in mapping.items():
+        for sent in sents:
+            rows.append({"title": title, "sentence": sent})
     df_sentencized = pd.DataFrame(rows)
 
+    # 5.5. Filtrer les phrases sans verbe
+    df_sent_with_verb    = df_sentencized[df_sentencized["sentence"].apply(contains_verb)]
+    df_sent_without_verb = df_sentencized[~df_sentencized["sentence"].apply(contains_verb)]
 
+    # 5.6. Re-sentencize et relancer Similarity par thème
+    mappingSentencized = {
+        title: preproc.sentencize_sentences(sents)
+        for title, sents in mapping.items()
+    }
 
-
-
-    df_sentencized = df_sentencized[df_sentencized["sentence"].apply(contains_verb)]
-
-    df_without_verbs = df_sentencized[~df_sentencized["sentence"].apply(contains_verb)]
-
-        
-
-    mappingSentencized = {}
-    for question_title, sentences_list in mapping.items():
-        sentencized = preproc.sentencize_sentences(sentences_list)
-        mappingSentencized[question_title] = sentencized
-
-    rows = []
-    for title, sentences in mappingSentencized.items():
-        for sentence in sentences:
-            rows.append({'title': title, 'sentence': sentence})
-    df_sentencized = pd.DataFrame(rows)
-
-
-    sim       = Similarity(batch_size=32)   
-    titles = [
-        "Analyse et synthèse",
-        "Autonomie de décision",
-        "Complexité de l'environnement",
-        "Connaissances linguistiques",
-        "Diversité des missions",
-        "Diversité et quantité des postes à gérer",
-        "Durée",
-        "Evolution de l'environnement",
-        "Formation complémentaire",
-        "Formation de base",
-        "Impact externe des prestations",
-        "Impact interne des prestations",
-        "Innovation",
-        "Nature",
-        "Nature des communications externes",
-        "Nature des communications internes",
-        "Responsabilités budgétaires",
-        "Responsabilités de planification et de réalisation des activités à court terme",
-        "Responsabilités de planification et de réalisation des activités à long terme",
-        "Rôle dans la gestion des ressources humaines"
-    ]
-    all_matches = []
-
-    banned=set()
-    # Read a JSON file (example: 'input.json')
-    with open('Triplets.json', 'r', encoding='utf-8') as f:
+    # Bannissement des négatives du JSON
+    with open(TRIPLETS, "r", encoding="utf-8") as f:
         data = json.load(f)
-    for item in data:
-        banned.update(item["negatives"])
+    banned = {neg for item in data for neg in item["negatives"]}
 
-
-
-    for title in titles:
-        questions = df[df["title"] == title]["response"].tolist()
-
-        corpus_sentences = mappingSentencized.get(title, [])
-        corpus_sentences = [s for s in corpus_sentences if s not in banned]
+    all_matches = []
+    for title in [
+        "Analyse et synthèse","Autonomie de décision","Complexité de l'environnement",
+        # … la liste complète de tes titres …
+    ]:
+        questions       = df_q[df_q["title"] == title]["response"].tolist()
+        corpus_sentences= [s for s in mappingSentencized.get(title, []) if s not in banned]
         if questions and corpus_sentences:
-            matches = sim.top_k_matches(
+            m = sim.top_k_matches(
                 questions=questions,
                 corpus_sentences=corpus_sentences,
                 k=5,
                 question_titles=[title]*len(questions),
             )
-            all_matches.append(matches)
-
+            all_matches.append(m)
     matchesSentences = pd.concat(all_matches, ignore_index=True)
 
-
-    import json
-
-
-    sentences_used=[]
+    # 5.7. Sélection finale avec LLM
     results_for_json = []
-    for title, group in matchesSentences.groupby('question_title'):
-        max_score = group['score'].max()
-        threshold = 0.1
-        close_matches = group[(group['score'] >= max_score - threshold) & (group['score'] <= max_score + threshold)].sort_values('score', ascending=False)
-        close_matches = close_matches.drop_duplicates(subset=["sentence"])
-        # print(f"\n--- {title} (top score: {max_score:.3f}) ---")
-        
-
-
-        for _, row in close_matches.iterrows():
-            if row['sentence'] not in sentences_used:
-                sentences_used.append(row['sentence'])
-            pts_value = df.loc[df["response"] == row["question"], "pts"]
-
-            # print(f"Score: {row['score']:.3f}\nQuestion: {row['question']}\nSentence: {row['sentence']}\n")
-            # print(f"pts: {pts_value.values[0]}")
-            # print("-" * 80)
-
+    sentences_used   = []
+    for title, group in matchesSentences.groupby("question_title"):
+        max_score  = group["score"].max()
+        threshold  = 0.1
+        close = (
+            group[(group["score"] >= max_score - threshold) & (group["score"] <= max_score + threshold)]
+            .drop_duplicates(subset=["sentence"])
+            .sort_values("score", ascending=False)
+        )
+        for _, row in close.iterrows():
+            if row["sentence"] not in sentences_used:
+                sentences_used.append(row["sentence"])
+            pts_value = df_q.loc[df_q["response"] == row["question"], "pts"].values[0]
             results_for_json.append({
-                "title": title,
+                "title":    title,
                 "question": row["question"],
                 "sentence": row["sentence"],
-                "score": row["score"],
-                "pts": pts_value.values[0] 
+                "score":    row["score"],
+                "pts":      pts_value
             })
 
-
-
-    if title == titles[-1]: 
-        with open(f"results/results_of_{CahierChargeName}.json", "w", encoding="utf-8") as f:
-            json.dump(results_for_json, f, ensure_ascii=False, indent=2)
-        json_content_str = json.dumps(results_for_json, ensure_ascii=False)
-        conn.execute_query('''delete from ResultatsJSON where filename = ?''', (f"all_matches_of_{CahierChargeName}.json",))
-        conn.execute_query('''
-        INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
-    ''', (f"all_matches_of_{CahierChargeName}.json", json_content_str))
-        conn.commit()
-
-
-
-    sentences = []
-    for i in mappingSentencized:
-        for j in mappingSentencized[i]:
-            if j not in sentences:
-                sentences.append(j)
-    # print("Total unique sentences:", len(sentences))
-    # print("\n",sentences)
-    # print("Total sentences used:", len(sentences_used))
-    # print("\n",sentences_used)
-
-
-    to_use = [s for s in sentences if s not in sentences_used]
-    to_use = to_use + df_without_verbs["sentence"].tolist()
-    # print("Total sentences not used:", len(to_use))
-    # for s in to_use:
-    #     if len(s) > 2:
-    #         print(s)
-
-    with open(f"results/not_matched_of_{CahierChargeName}.json", "w", encoding="utf-8") as f:
+    # Sauvegarde all_matches + BDD
+    out_all = f"results/all_matches_of_{CahierChargeName}.json"
+    os.makedirs("results", exist_ok=True)
+    with open(out_all, "w", encoding="utf-8") as f:
+        json.dump(results_for_json, f, ensure_ascii=False, indent=2)
+    conn.execute_query(
+        "INSERT OR REPLACE INTO ResultatsJSON (filename, json_content) VALUES (?,?)",
+        (f"all_matches_of_{CahierChargeName}.json", json.dumps(results_for_json, ensure_ascii=False))
+    )
+    conn.commit()
+    # Not matched
+    all_sentences = sorted({s for sents in mappingSentencized.values() for s in sents})
+    to_use = [s for s in all_sentences if s not in sentences_used]
+    out_not = f"results/not_matched_of_{CahierChargeName}.json"
+    with open(out_not, "w", encoding="utf-8") as f:
         json.dump(to_use, f, ensure_ascii=False, indent=2)
-    json_content_str = json.dumps(to_use, ensure_ascii=False)
 
-    conn.execute_query('''delete from ResultatsJSON where filename = ?''', (f"not_matched_of_{CahierChargeName}.json",))
+    conn.execute_query(
+        "INSERT OR REPLACE INTO ResultatsJSON (filename, json_content) VALUES (?,?)",
+        (f"not_matched_of_{CahierChargeName}.json", json.dumps(to_use, ensure_ascii=False))
+    )
 
-    conn.execute_query('''
-        INSERT INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
-    ''', (f"not_matched_of_{CahierChargeName}.json", json_content_str))
+    # 5.8. Choix final LLM
+    df_matches = conn.read_json(f"all_matches_of_{CahierChargeName}.json")
+    final_results = []
+    for title in df_matches["title"].unique():
+        group = df_matches[df_matches["title"] == title].nlargest(10, "score")
+        pairs = group[["question", "sentence", "score", "pts"]].to_dict("records")
+        idx   = choose_best_pair(title, pairs)
+        final_results.append(pairs[idx])
+
+    out_llm = f"results/after_llm_of_{CahierChargeName}.json"
+    with open(out_llm, "w", encoding="utf-8") as f:
+        json.dump(final_results, f, ensure_ascii=False, indent=2)
+    conn.execute_query(
+        "INSERT OR REPLACE INTO ResultatsJSON (filename, json_content) VALUES (?,?)",
+        (f"after_llm_of_{CahierChargeName}.json", json.dumps(final_results, ensure_ascii=False))
+    )
 
     conn.commit()
-
-
-
     conn.close()
+    print("✅ Traitement terminé — résultats dans", out_llm)
 
-def contains_verb(text):
-    nlp = spacy.load("fr_core_news_md")
-    doc = nlp(text)
-    return any(token.pos_ == "VERB" or token.pos_ == "AUX" for token in doc)
+# ─────────────────────────────────────────────────────────────────────────────
+# 6. ENTRYPOINT
+# ─────────────────────────────────────────────────────────────────────────────
+if __name__ == "__main__":
+    main()

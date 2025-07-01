@@ -9,8 +9,9 @@ def main():
         sys.exit(1)
 
     docx_file = sys.argv[1]
+    print(f"Processing file: {docx_file}")
 
     run_eval(docx_file)
-    run_filter(docx_file)
+    # run_filter(docx_file)
 if __name__ == "__main__":
     main()
