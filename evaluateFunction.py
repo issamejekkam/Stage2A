@@ -63,6 +63,18 @@ for title, sentences in mapping.items():
     for sentence in sentences:
         rows.append({'title': title, 'sentence': sentence})
 df_sentencized = pd.DataFrame(rows)
+def contains_verb(text):
+    doc = nlp(text)
+    return any(token.pos_ == "VERB" or token.pos_ == "AUX" for token in doc)
+import spacy
+
+nlp = spacy.load("fr_core_news_md")
+
+df_sentencized = df_sentencized[df_sentencized["sentence"].apply(contains_verb)]
+
+df_without_verbs = df_sentencized[~df_sentencized["sentence"].apply(contains_verb)]
+
+    
 
 mappingSentencized = {}
 for question_title, sentences_list in mapping.items():

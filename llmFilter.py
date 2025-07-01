@@ -62,7 +62,7 @@ def choose_best_pair(title: str, pairs: list[dict]) -> int:
     TÂCHE :
       • Pour chaque couple question / phrase candidate, choisis la **SEULE** phrase qui répond
         parfaitement et explicitement à la question.
-      •  prends en meilleure choix le couple ayant comme phrases contenant les mots-clés importants suivants: {kw if kw else ''}. 
+      •  prends en meilleur choix le couple ayant comme phrases contenant les mots-clés importants suivants: {kw if kw else ''}. 
       • Ne retiens pas les phrases génériques, incomplètes ou hors-sujet.
       • Ignore les phrases très courtes du type ‘Formation professionnelle requise’,
         ‘Compétences requises’, etc.
