@@ -235,6 +235,14 @@ def main():
 
     conn.commit()
     conn.close()
+    llm.close()
+
+    # éviter le warning LlamaSampler
+    sampler = getattr(llm, "_sampler", None)
+    if sampler:
+        sampler.close()
+
+
     print("✅ Traitement terminé — résultats dans", out_llm)
 
 # ─────────────────────────────────────────────────────────────────────────────
