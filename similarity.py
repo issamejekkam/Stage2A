@@ -98,7 +98,7 @@ class Similarity:
         questions: List[str],
         corpus_sentences: List[str],
         *,
-        k: int = 3,
+        k: int = 2,
         question_titles: Optional[List[str]] = None,
     ) -> pd.DataFrame:
         """

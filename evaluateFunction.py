@@ -147,7 +147,7 @@ sentences_used=[]
 results_for_json = []
 for title, group in matchesSentences.groupby('question_title'):
     max_score = group['score'].max()
-    threshold = 0.4
+    threshold = 0.1
     close_matches = group[(group['score'] >= max_score - threshold) & (group['score'] <= max_score + threshold)].sort_values('score', ascending=False)
     close_matches = close_matches.drop_duplicates(subset=["sentence"])
     # print(f"\n--- {title} (top score: {max_score:.3f}) ---")
