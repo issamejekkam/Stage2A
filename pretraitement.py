@@ -12,7 +12,7 @@ except ImportError:
 class Pretraitement:
 
     def __init__(self, cahier_text: str, questionnaire: pd.DataFrame | str,
-                 spacy_model: str = "fr_dep_news_trf") -> None:
+                 spacy_model: str = "fr_dep_news_md") -> None:
         """
         :param cahier_text: Le texte brut du cahier des charges (full text)
         :param questionnaire: Un DataFrame du questionnaire

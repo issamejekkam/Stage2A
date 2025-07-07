@@ -75,7 +75,9 @@ class Similarity:
         if not hasattr(self, "_nlp"):
             try:
                 import spacy
+
                 self._nlp = spacy.load("fr_dep_news_trf", exclude=["ner", "tagger", "parser"])
+                
             except ImportError:
                 raise ImportError("Le module 'spacy' n'est pas installé.")
             except OSError:
@@ -98,7 +100,7 @@ class Similarity:
         questions: List[str],
         corpus_sentences: List[str],
         *,
-        k: int = 2,
+        k: int = 5,
         question_titles: Optional[List[str]] = None,
     ) -> pd.DataFrame:
         """
