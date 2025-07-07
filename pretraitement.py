@@ -91,7 +91,7 @@ class Pretraitement:
         """
         sentences = []
         for text in texts:
-            parts = [s.strip() for s in re.split(r'[.,:;!?…\n\r\t]+', text) if s.strip()]
+            parts = [s.strip() for s in re.split(r'[.,:;/!?…\n\r\t]+', text) if s.strip()]
             sentences.extend(parts)
         sentences = [s for s in sentences if len(s.split()) >= min_tokens + 1]
         return sentences
