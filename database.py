@@ -2,6 +2,8 @@ import pandas as pd
 import sqlite3
 from io import BytesIO
 from docx import Document
+import os
+import fitz
 
 
 
@@ -58,9 +60,27 @@ class database:
             document = Document(BytesIO(CahierCharge))
             full_text = "\n".join(p.text.strip() for p in document.paragraphs if p.text.strip())
             return full_text
+
+
+        local_path = f'./clients/{filename}'
+
+        if os.path.exists(local_path):
+            if filename.lower().endswith(".docx"):
+                document = Document(local_path)
+                full_text = "\n".join(p.text.strip() for p in document.paragraphs if p.text.strip())
+                return full_text
+            elif filename.lower().endswith(".pdf"):
+
+               
+                with fitz.open(local_path) as doc:
+                    full_text = "\n".join(page.get_text().strip() for page in doc)
+                return full_text
+            else:
+                print(f"❌ Format de fichier non supporté : {filename}")
+                return ""
         else:
-            print(f"⚠️ Fichier '{filename}' non trouvé dans la base de données.")
-            return ""  
+            print(f"⚠️ Fichier '{filename}' non trouvé dans la base de données ni dans ./cahiercharge.")
+            return ""
 
 
     def read_json(self, filename):
@@ -71,7 +91,7 @@ class database:
         
         if record:
             json_content = record[0]
-            from io import StringIO  # et non BytesIO
+            from io import StringIO  
 
             return pd.read_json(StringIO(json_content))
         else:

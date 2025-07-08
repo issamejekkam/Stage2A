@@ -1,15 +1,23 @@
-import os
+
 import pandas as pd
 import sqlite3
-from docx import Document
 import sys
-from io import BytesIO
+import json
+import spacy
+
+
 
 from pretraitement import Pretraitement
 from database import database
 from similarity import Similarity
-import json
-from sentence_transformers import SentenceTransformer, losses,InputExample
+
+
+
+
+
+
+nlp = spacy.load("fr_core_news_md")
+
 
 
 conn=database("data.db")
@@ -20,7 +28,15 @@ else:
     print("Usage: python evaluateFunction.py <CahierCharge>")
     sys.exit(1)
 
-CahierCharge = sys.argv[1] 
+
+def contains_verb(text):
+    doc = nlp(text)
+    return any(token.pos_ == "VERB" or token.pos_ == "AUX" for token in doc)
+
+
+def twowordsmin(text):
+    return len(text.split()) >= 2
+
 
 df = conn.readQuestionnaire()
 CahierCharge = conn.readCahierDeCharges(CahierChargeName)
@@ -31,15 +47,12 @@ preproc = Pretraitement(CahierCharge, questionnaire)
 preproc._load_spacy()
 df= preproc.load_questionnaire()
 df=preproc.keep_abcd_lines(df)
-
 sentences = preproc.build_cahier_df()
 
 
-sim       = Similarity(batch_size=32)  
-# sim.train()
-# sim = Similarity(model_name="models/camembert_mnr_v1",
-#                  batch_size=32)   
 
+
+sim       = Similarity(batch_size=32)  
 matches   = sim.top_k_matches(
     questions=df["response"].tolist(),
     corpus_sentences=sentences["sentence"].tolist(),
@@ -49,7 +62,6 @@ matches   = sim.top_k_matches(
 
 
 matches.to_excel("results/Test5Results.xlsx", index=False)
-# print("✅  Fichier 'Test5Results.xlsx' généré !")
 matches_no_duplicates = matches.drop_duplicates(subset=["question_title", "sentence"])
 
 cols_to_drop = [col for col in ["score", "rank", "label"] if col in matches_no_duplicates.columns]
@@ -70,21 +82,11 @@ for title, sentences in mapping.items():
         rows.append({'title': title, 'sentence': sentence})
 df_sentencized = pd.DataFrame(rows)
 
-def contains_verb(text):
-    doc = nlp(text)
-    return any(token.pos_ == "VERB" or token.pos_ == "AUX" for token in doc)
-import spacy
-
-nlp = spacy.load("fr_core_news_md")
 
 
-# Formation et expériences professionnelles requises
 
-# formation de base
-# Autres activités et responsabilités
-# Activités et responsabilités principales
-# Fonctions directement subordonnées
-# Responsable hiérarchique direct
+
+
 
 mappingSentencized = {}
 for question_title, sentences_list in mapping.items():
@@ -96,12 +98,16 @@ for title, sentences in mappingSentencized.items():
     for sentence in sentences:
         rows.append({'title': title, 'sentence': sentence})
 df_sentencized = pd.DataFrame(rows)
-df_sentencized = df_sentencized[df_sentencized["sentence"].apply(contains_verb)]
+# df_sentencized = df_sentencized[df_sentencized["sentence"].apply(contains_verb)]
+df_sentencized = df_sentencized[df_sentencized["sentence"].apply(twowordsmin)]
 
-df_without_verbs = df_sentencized[~df_sentencized["sentence"].apply(contains_verb)]
+# df_without_verbs = df_sentencized[~df_sentencized["sentence"].apply(contains_verb)]
+df_without_verbs = df_sentencized[~df_sentencized["sentence"].apply(twowordsmin)]
 
 for title in mappingSentencized:
-    mappingSentencized[title] = [s for s in mappingSentencized[title] if contains_verb(s)]
+    # mappingSentencized[title] = [s for s in mappingSentencized[title] if contains_verb(s)]
+    mappingSentencized[title] = [s for s in mappingSentencized[title] if twowordsmin(s)]
+
 sim       = Similarity(batch_size=32)   
 titles = [
     "Analyse et synthèse",
@@ -145,10 +151,9 @@ for title in titles:
         all_matches.append(matches)
 
 matchesSentences = pd.concat(all_matches, ignore_index=True)
-# matchesSentences.to_excel("results/Test5Resultslatest.xlsx", index=False)
-# print("✅  Fichier 'Test5Resultslatest.xlsx' généré !")
 
-import json
+
+
 
 
 sentences_used=[]
@@ -158,7 +163,6 @@ for title, group in matchesSentences.groupby('question_title'):
     threshold = 0.3
     close_matches = group[(group['score'] >= max_score - threshold) & (group['score'] <= max_score + threshold)].sort_values('score', ascending=False)
     close_matches = close_matches.drop_duplicates(subset=["sentence"])
-    # print(f"\n--- {title} (top score: {max_score:.3f}) ---")
     
 
 
@@ -166,10 +170,6 @@ for title, group in matchesSentences.groupby('question_title'):
         if row['sentence'] not in sentences_used:
             sentences_used.append(row['sentence'])
         pts_value = df.loc[df["response"] == row["question"], "pts"]
-
-        # print(f"Score: {row['score']:.3f}\nQuestion: {row['question']}\nSentence: {row['sentence']}\n")
-        # print(f"pts: {pts_value.values[0]}")
-        # print("-" * 80)
 
         results_for_json.append({
             "title": title,
@@ -197,17 +197,8 @@ for i in mappingSentencized:
     for j in mappingSentencized[i]:
         if j not in sentences:
             sentences.append(j)
-# print("Total unique sentences:", len(sentences))
-# print("\n",sentences)
-# print("Total sentences used:", len(sentences_used))
-# print("\n",sentences_used)
-
 
 to_use = [s for s in sentences if s not in sentences_used]
-# print("Total sentences not used:", len(to_use))
-# for s in to_use:
-#     if len(s) > 2:
-#         print(s)
 
 with open(f"results/not_matched_of_{CahierChargeName}.json", "w", encoding="utf-8") as f:
     json.dump(to_use, f, ensure_ascii=False, indent=2)
@@ -219,22 +210,6 @@ conn.execute_query('''
 ''', (f"not_matched_of_{CahierChargeName}.json", json_content_str))
 
 conn.commit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

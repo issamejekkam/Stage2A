@@ -1,17 +1,10 @@
-from __future__ import annotations 
-from typing import List, Optional
 import numpy as np
 import pandas as pd
 import torch
+from typing import List,Optional
 
-from needed import return_train_loader
-from torch.utils.data import DataLoader
-from sentence_transformers import SentenceTransformer, losses,InputExample
-from sentence_transformers.losses import TripletLoss, MultipleNegativesRankingLoss
+from sentence_transformers import SentenceTransformer, InputExample
 
-
-import json
-from torch.utils.data import DataLoader
 
 
 class Similarity:
@@ -21,42 +14,13 @@ class Similarity:
     def __init__(
         self,
         model_name: str = "dangvantuan/sentence-camembert-base",
-        device: Optional[str] = None,
         batch_size: int = 64,
     ) -> None:
-        if device is None:
-            device = (
-                "cuda"
-                if torch.cuda.is_available()
-                else "mps"
-                if torch.backends.mps.is_available()
-                else "cpu"
-            )
-        self.device = device
+        
         self.batch_size = batch_size
-        self.model = SentenceTransformer(model_name, device=self.device)
+        self.model = SentenceTransformer(model_name)
 
 
-    # def train(self, triplet_json="Triplets.json", epochs=10, out_dir="models/camembert_mnr_v1"):
-    #     data = json.load(open(triplet_json, encoding="utf-8"))
-
-    #     pairs = []
-    #     for item in data:
-    #         anchor = item["question"]
-    #         for pos in item["positive"]:
-    #             pairs.append(InputExample(texts=[anchor, pos]))
-
-    #     train_loader = DataLoader(pairs, shuffle=True, batch_size=self.batch_size)
-    #     train_loss   = MultipleNegativesRankingLoss(self.model)
-
-    #     self.model.fit(
-    #         train_objectives=[(train_loader, train_loss)],
-    #         epochs=epochs,
-    #         show_progress_bar=True,
-    #         output_path=out_dir
-    #     )
-    #     # recharge le modèle fine-tuné
-    #     self.model = SentenceTransformer(out_dir, device=self.device)
 
     
 
