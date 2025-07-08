@@ -50,3 +50,11 @@ resultats_fin = resultats_needed.sort_values('similarity', ascending=False).drop
 
 
 resultats_fin.to_json(f"results/after_comparaison_lexicale_of_{CahierChargeName}.json", orient="records", force_ascii=False, indent=4)
+
+json_content = resultats_fin.to_json(orient="records", force_ascii=False, indent=4)
+database.execute_query('''
+    INSERT or replace INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
+''', (f"after_comparaison_lexicale_of_{CahierChargeName}.json", json_content))
+
+database.commit()
+database.close()
