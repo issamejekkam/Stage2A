@@ -1,0 +1,15 @@
+/Users/user/Desktop/Stage2A/VbWebForm/bin/Debug/net9.0/VbWebForm
+/Users/user/Desktop/Stage2A/VbWebForm/bin/Debug/net9.0/VbWebForm.deps.json
+/Users/user/Desktop/Stage2A/VbWebForm/bin/Debug/net9.0/VbWebForm.runtimeconfig.json
+/Users/user/Desktop/Stage2A/VbWebForm/bin/Debug/net9.0/VbWebForm.dll
+/Users/user/Desktop/Stage2A/VbWebForm/bin/Debug/net9.0/VbWebForm.pdb
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/VbWebForm.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/VbWebForm.AssemblyInfoInputs.cache
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/VbWebForm.AssemblyInfo.vb
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/VbWebForm.vbproj.CoreCompileInputs.cache
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/VbWebForm.sourcelink.json
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/VbWebForm.dll
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/refint/VbWebForm.dll
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/VbWebForm.pdb
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/VbWebForm.genruntimeconfig.cache
+/Users/user/Desktop/Stage2A/VbWebForm/obj/Debug/net9.0/ref/VbWebForm.dll
