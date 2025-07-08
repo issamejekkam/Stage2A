@@ -1,5 +1,13 @@
 from database import database
 import sys
+import spacy
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.metrics.pairwise import cosine_similarity
+
+
+
+
+nlp = spacy.load("fr_core_news_md")  
 
 database= database("data.db")
 database.connect()
@@ -12,8 +20,7 @@ else:
 resultats=database.read_json(f"all_matches_of_{CahierChargeName}.json")
 
 
-import spacy
-nlp = spacy.load("fr_core_news_md")  # pas besoin d'exclude
+
 
 def lemmatize(text):
     doc = nlp(text)
@@ -22,6 +29,12 @@ def lemmatize(text):
 def to_lower(text):
     return text.lower()
 
+def tfidf_similarity(text1, text2):
+    vect = TfidfVectorizer()
+    tfidf = vect.fit_transform([text1, text2])
+
+    return cosine_similarity(tfidf[0], tfidf[1])[0][0]
+
 
 resultats["sentence_lemmatized"] = resultats["sentence"].apply(to_lower)
 resultats["sentence_lemmatized"] = resultats["sentence_lemmatized"].apply(lemmatize)
@@ -29,16 +42,9 @@ resultats['question_lemmatized'] = resultats['question'].apply(to_lower)
 resultats['question_lemmatized'] = resultats['question_lemmatized'].apply(lemmatize)
 
 
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
 
 
 
-def tfidf_similarity(text1, text2):
-    vect = TfidfVectorizer()
-    tfidf = vect.fit_transform([text1, text2])
-
-    return cosine_similarity(tfidf[0], tfidf[1])[0][0]
 
 
 resultats['similarity'] = resultats.apply(lambda row: tfidf_similarity(row['sentence_lemmatized'], row['question_lemmatized']), axis=1)
