@@ -75,7 +75,7 @@ Module Program
                 ' Show the form
                 Dim html As String =
                     "<!DOCTYPE html>" &
-                    "<html><body>" &
+                    "<html><head><meta charset=""UTF-8""></head><body>" &
                     "<form action='/submit' method='post'>" &
                     "  <label for='filename'>filename:</label>" &
                     "  <input type='text' id='filename' name='filename'><br><br>" &
