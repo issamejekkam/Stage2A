@@ -30,6 +30,10 @@ class database:
     def readQuestionnaire(self):
         selected_questionnaire = "SELECT * FROM Questionnaire"
         return pd.read_sql_query(selected_questionnaire, self.connection)
+    
+    def readQuestionnaireClean(self):
+        selected_questionnaire = "SELECT * FROM QuestionnaireClean"
+        return pd.read_sql_query(selected_questionnaire, self.connection)
     def execute_query(self, query, params=None):
         if not self.is_connected():
             raise Exception("Database connection is not established.")
@@ -42,6 +46,8 @@ class database:
         
         self.connection.commit()
         return cursor.fetchone()
+    
+
 
     def retrieve_and_save_doc(self,filename):
 

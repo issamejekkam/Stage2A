@@ -37,9 +37,9 @@ KEYWORDS = {
     # 1. Formation & expérience
     "Formation de base": [
         # tronc de la version XXL
-        "niveau scolaire obligatoire", "niveaux scolaires obligatoires",
-        "AFP", "AFPs", "CFC", "CFCs", "CAP", "CAPs", "BEP", "BEPs",
-        "baccalauréat", "baccalauréats",
+        "niveau scolaire obligatoire", "niveaux scolaires obligatoires","niveau scolaire","formation post grade",
+        "AFP", "AFPs", "CFC", "CFCs", "CAP", "CAPs", "BEP", "BEPs","SAS","maturité académique","certificat de fin de secondaire"
+        "baccalauréat", "baccalauréats","bac,"
         "BTS", "BTSs", "DUT", "DUTs",
         "licence", "licences",
         "Bachelor", "Bachelors",
@@ -48,17 +48,17 @@ KEYWORDS = {
         "MBA", "MBAs",
         "Doctorat", "Doctorats", "PhD", "PhDs",
         "habilitation", "habilitations", "VAE", "VAEs",
-        # ajouts « forts »
+
         "BAC", "bac", "bac+1", "bac+2", "bac+3", "bac+4", "bac+5",
 
 
     ],
 
     "Formation complémentaire": [
-        "certification", "certifications", "certifié", "certifiée",
+        "certification", "certifications", "certifié", "certifiée","certificat", "certificats",
         "certifiés", "certifiées",
         "formation continue", "formations continues",
-
+        "complémentaire", "complémentaires","Une formation complémentaire","formation complémentaire","formations complémentaires","Deux formations complémentaires",
         "MOOC", "MOOCs",
         "micro-credential", "micro-credentials",
         "label qualité", "labels qualité",
@@ -68,13 +68,14 @@ KEYWORDS = {
         "CQP", "CQPs",
         # ajouts
         "perfectionnement", "se perfectionner", "perfectionné",
-        "spécialisation", "spécialiser", "spécialisé",
+        "spécialisation","spécialisation", "spécialiser", "spécialisé",
         "certifier", "certifiera",
         "actualiser", "actualisé",
         "recycler", "recyclage", "mettre à jour"
     ],
 
     "Nature": [
+        "peu ou pas d'expérience", "peu ou pas d'expériences","de l'expérience professionnelle","même type d'expérience","même niveau de responsabilités",
         "première expérience", "premières expériences",
         "stage significatif", "stages significatifs",
         "expérience sectorielle", "expériences sectorielles",
@@ -89,11 +90,13 @@ KEYWORDS = {
         "parcours", "background", "antécédent"
     ],
 
-    "Durée": [
+    "Durée": ["durée minimum", "durée minimale", "durée minimale requise",
         "moins d’un an", "moins d'une année",
+        "0-1 an", "0 à 1 an",
         "1-3 ans", "1 à 3 ans",
         "3-5 ans", "3 à 5 ans",
         "5-8 ans", "5 à 8 ans",
+        "plus de 8 ans d'expérience ",
         "8-12 ans", "8 à 12 ans",
         "12 ans et plus",
         "junior", "juniors",
@@ -108,6 +111,10 @@ KEYWORDS = {
 
     # 2. Responsabilités & autonomie
     "Responsabilités de planification et de réalisation des activités à court terme": [
+        "élaboration", "élaborations","élaborer", "élaboré", "élaborée", "élaborés", "élaborées",
+        "planification", "planifications",
+        "suivi de plans à court terme", "suivis de plans à court terme","mise en oeuvre de plans à court terme","mise en oeuvre de plans","planification à long terme","planification",
+        
         "planning quotidien", "plannings quotidiens",
         "ordonnancement", "ordonnancements",
         "suivi opérationnel", "suivis opérationnels",
@@ -124,6 +131,7 @@ KEYWORDS = {
         "plan directeur", "plans directeurs",
         "roadmap stratégique", "roadmaps stratégiques",
         "roadmap", "roadmaps",
+        "réalisations futures","recherches futures","rechereches",
         "budget pluriannuel", "budgets pluriannuels",
         "veille prospective", "veilles prospectives",
         "business plan", "business plans",
@@ -148,10 +156,11 @@ KEYWORDS = {
         "décider", "décision", "trancher", "arbitrer", "arbitrage",
         "autoriser", "autorisation", "valider", "validation",
         "indépendant", "indépendante", "autonome", "autonomes",
-        "consigne", "consignes"
+        "consigne", "consignes","directive", "directives","plan de travail","contrôle d'un responsable"
     ],
 
     "Diversité et quantité des postes à gérer": [
+        "gère directement peu de postes","peu de postes","activités semblables","peu de postes","activités diverses","grand nombre de postes",
         "aucun subordonné", "aucune subordonnée", "aucuns subordonnés",
         "gestion de proximité", "gestions de proximité",
         "management intermédiaire", "managements intermédiaires",
@@ -167,7 +176,11 @@ KEYWORDS = {
     ],
 
     "Rôle dans la gestion des ressources humaines": [
+        "ressources humaines","transfert de connaissances","formation des collaborateurs","coordonne l'exécution","coordonne","coordonné", "coordonnée", "coordonnés", "coordonnées","coordonner",
+        "évaluation des fonctions","appréciation des collaborateurs"
         "coaching", "coachings", "coach", "coachs",
+        "direction", "directions","recrutement", "recrutements","rémunération"
+        "gestion des ressources humaines", "gestions des ressources humaines",
         "animation d’équipe", "animations d’équipe",
         "recrutement", "recrutements",
         "onboarding", "onboardings",
@@ -182,6 +195,13 @@ KEYWORDS = {
     ],
 
     "Responsabilités budgétaires": [
+        "suivi financier", "suivis financiers","poste budgétaire","postes budgétaires",
+        "gestion budget", "gestions budgets",
+        "facturation", "facturations","paiement", "paiements",
+        "gestion financière", "gestions financières",
+        "gestion des coûts", "gestions des coûts",
+        "gestion des dépenses", "gestions des dépenses",
+        "gestion des factures", "gestions des factures",
         "traitement factures", "traitements factures",
         "suivi poste budgétaire", "suivis postes budgétaires",
         "gestion centre de coûts", "gestions centres de coûts",
@@ -193,6 +213,7 @@ KEYWORDS = {
         "analyse écarts", "analyses écarts",
         "closing comptable", "closings comptables",
         # ajouts
+        "budget", "budgets", "financier", "financiers","budgetaire", "budgétaires",
         "financer", "financement", "budgéter", "budgétisation",
         "payer", "paiement", "investir", "investissement",
         "calculer", "calcul", "dépenser", "dépense"
@@ -215,6 +236,7 @@ KEYWORDS = {
     ],
 
     "Impact interne des prestations": [
+        "prestation de service", "prestations de services","prestation fournie","bénéficiare de la prestation","bénéficiare de prestations","bénéficiares de prestations",
         "réduction coûts", "réduction des coûts", "réductions des coûts",
         "qualité service", "qualité du service", "qualités service",
         "sécurité processus", "sécurités processus",
@@ -232,25 +254,26 @@ KEYWORDS = {
 
     # 4. Communication & langues
     "Nature des communications internes": [
-        "briefing", "briefings",
+        "sujet courant", "sujets courants","l'échange d'informations","l'échange d'information","échanges d'informations",
+        "briefing", "briefings","interactions"
         "reporting interne", "reportings internes",
         "animation réunion", "animations réunion",
         "synthèse", "synthèses",
-        "négociation interne", "négociations internes",
+        "négociation interne", "négociations internes","négociation", "négociations",
         "facilitation", "facilitations",
         "communication transverse", "communications transverses",
         "gestion de conflit", "gestions de conflits",
         "culture feedback", "cultures feedback",
         # ajouts
-        "informer", "information", "échanger", "échange",
+        "informer", "information", "échanger", "échange","négocier","négociateur",
         "communiquer", "communication", "dialoguer", "dialogue",
         "transmettre", "transmission", "expliquer", "explication",
         "coordonner", "coordination"
     ],
 
     "Nature des communications externes": [
-        "relation client", "relations clients", "relations clientèle",
-        "relations fournisseurs",
+        "relation client", "relations clients", "relations clientèle","sujet courant","sujets courants",
+        "relations fournisseurs","explication","perceptions",
         "relations institutionnelles",
         "porte-parole", "porte-paroles",
         "représentation officielle", "représentations officielles",
@@ -260,6 +283,7 @@ KEYWORDS = {
         "community management", "community managements",
         "gestion partenariats", "gestions partenariats",
         # ajouts
+        "informer", "information", "expliquer", "explication",
         "présenter", "présentation", "convaincre", "conviction",
         "persuader", "persuasion", "argumenter", "argumentation",
         "promouvoir", "promotion", "négocier", "négociation"
@@ -272,12 +296,12 @@ KEYWORDS = {
         "allemand technique", "allemands techniques",
         "espagnol opérationnel", "espagnols opérationnels",
         "italien conversationnel", "italiens conversationnels",
-        "langue des signes", "langues des signes",
-        "bilingue", "bilingues",
+        "langue des signes", "langues des signes","langues","langue",
+        "bilingue", "bilingues","deux langues","deuxième langue","troisième langue",
         "trilingue", "trilingues",
-        "multilingue", "multilingues",
+        "multilingue", "multilingues","lecture","coversation","rédaction","français","française","langue maternelle",
         # ajouts
-        "parler", "parlé", "lire", "lu", "rédiger", "rédigé",
+        "parler", "parlé", "lire", "lu", "rédiger", "rédigé","écrire ","écrit",
         "traduire", "traduction", "interpréter", "interprétation",
         "fluency", "maîtrise", "maîtriser", "maîtrisé"
     ],
@@ -292,6 +316,8 @@ KEYWORDS = {
         "multi-projet", "multi-projets", "multiprojet", "multiprojets",
         "environnement à risque", "environnements à risque",
         "cadre international", "cadres internationaux",
+        "difficultés","adaptabilité", "flexibilité",
+        "complexité", "complexités",
         # ajouts
         "gérer", "gestion", "faire face", "affronter",
         "naviguer", "navigation", "complexifier", "complexification",
@@ -299,6 +325,7 @@ KEYWORDS = {
     ],
 
     "Evolution de l'environnement": [
+        "évolution régulière","adaptation","évolution rapide","évolution très rapide","processus de travail"
         "environnement à évolution régulière", "environnements à évolution régulière",
         "environnement à évolution rapide", "environnements à évolution rapide",
         "environnement à évolution très rapide", "environnements à évolution très rapide",
@@ -311,6 +338,7 @@ KEYWORDS = {
     ],
 
     "Diversité des missions": [
+        "tâches principales","même mission","2 à 3 missions différentes","issions différentes","4 missions différentes"
         "tâche répétitive", "tâches répétitives",
         "mission variée", "missions variées",
         "poly-compétence", "poly-compétences", "polycompétence", "polycompétences",
@@ -324,6 +352,25 @@ KEYWORDS = {
     ],
 
     "Analyse et synthèse": [
+        "base d'analyse", "bases d'analyses",
+        "analyse de données", "analyses de données",
+        "analyse statistique", "analyses statistiques",
+        "analyse de marché", "analyses de marché",
+        "analyse de performance", "analyses de performance",
+        "analyse de risque", "analyses de risque",
+        "analyse de tendance", "analyses de tendance",
+        "analyse de processus", "analyses de processus",
+        "analyse de performance", "analyses de performance",
+        "analyse de la concurrence", "analyses de la concurrence",
+        "analyse de l'impact", "analyses de l'impact",
+        "analyse de la satisfaction", "analyses de la satisfaction",
+        "analyse de la qualité", "analyses de la qualité",
+        "analyse de la rentabilité", "analyses de la rentabilité",
+        "analyse de la productivité", "analyses de la productivité",
+        "analyse de la chaîne de valeur", "analyses de la chaîne de valeur",
+        "interprétation", "interprétations","interpréter","synthèse", "synthèses",
+        "analyse de la supply chain", "analyses de la supply chain","sujets parfois complexes"
+        "analyse", "analyses", "analyser", "analysé", "analysée", "analysés", "analysées",
         "collecte donnée", "collecte données", "collectes de données",
         "data-crunching", "data crunching", "data-crunchings",
         "diagnostic", "diagnostics",
@@ -340,6 +387,9 @@ KEYWORDS = {
     ],
 
     "Innovation": [
+        "solutions", "solution", "solutions innovantes", "solution innovante",
+        "innovation", "innovations", "innovateur", "innovatrice",
+        "innovation produit", "innovations produits",
         "amélioration continue", "améliorations continues",
         "lean management", "lean",
         "design thinking",
@@ -364,6 +414,11 @@ database= database("data.db")
 database.connect()
 if len(sys.argv) > 1 :
     CahierChargeName = sys.argv[1]
+    posteid = sys.argv[2] if len(sys.argv) > 2 else None
+    userid = sys.argv[3] if len(sys.argv) > 3 else None
+    fonctionPoste = sys.argv[4] if len(sys.argv) > 4 else None
+    type = sys.argv[5] if len(sys.argv) > 5 else None
+    evalid=9
 else:
     print("Usage: python evaluateFunction.py <CahierCharge>")
     sys.exit(1)
@@ -423,6 +478,26 @@ resultats_needed = resultats[["title", "question", "sentence", "score", "pts", "
 resultats_needed.sort_values(by='similarity', ascending=False, inplace=True)
 
 resultats_fin = resultats_needed.sort_values('similarity', ascending=False).drop_duplicates(subset=['title'], keep='first')
+questionnaireClean = database.readQuestionnaireClean()
+for i in resultats_fin.index:
+      for index, row in questionnaireClean.iterrows():
+        if 'codeReponse' not in resultats_fin.columns:
+          resultats_fin.insert(3, 'codeReponse', '') 
+        if 'codeQuestion' not in resultats_fin.columns:
+          resultats_fin.insert(1, 'codeQuestion', '') 
+        
+
+        if row["reponsedesc"] == resultats_fin.at[i, 'question']:
+                a = row['critereid']
+                b = row['sscritereid']
+                c = row['questionnombre']
+                d = row['reponse']
+                resultats_fin.at[i, 'codeQuestion'] = f"{a}-{b}.{c}"
+                resultats_fin.at[i, 'codeReponse'] = f"{a}-{b}.{c}.{d}"
+resultats_fin=resultats_fin.rename(columns={
+    'title': 'Question',
+    'question': 'niv de réponse'})
+
 
 
 resultats_fin.to_json(f"results/after_comparaison_lexicale_of_{CahierChargeName}.json", orient="records", force_ascii=False, indent=4)
@@ -433,4 +508,101 @@ database.execute_query('''
 ''', (f"after_comparaison_lexicale_of_{CahierChargeName}.json", json_content))
 
 database.commit()
-database.close()
+resultats_finale=resultats_fin['codeReponse']
+
+resultats_finale_sorted= resultats_finale.sort_values(ascending=True).reset_index(drop=True)
+resultats_finale_sorted
+
+import pandas as pd
+temp = resultats_finale_sorted.str.split('-', expand=True)
+
+# Étape 2 : séparer la partie gauche du tiret (avant le -) par '.'
+left_parts = temp[1].str.split('.', expand=True)
+
+toStored = pd.DataFrame({
+    'posteid': posteid,
+    'evalid': 200,
+    'critereid': temp[0],
+    'sscritereid': left_parts[0],
+    'questionnombre': left_parts[1],
+    'Reponsenivmin': left_parts[2],
+    'Reponsenivmax': left_parts[2],
+    'desactive': 0,
+    'lastupdated': None,
+    'usrid': userid})
+
+if fonctionPoste is not None:
+    if fonctionPoste=="poste":
+        if type is not None:
+            if type=="responsabilités":
+                for row in toStored.itertuples(index=False):
+                    database.execute_query(
+                        '''
+                        INSERT INTO questionreponseposte (
+                            posteid, evalid, critereid, sscritereid, questionnombre,
+                            Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                        ''',
+                        (
+                            row.posteid,
+                            row.evalid,
+                            row.critereid,
+                            row.sscritereid,
+                            row.questionnombre,
+                            row.Reponsenivmin,
+                            row.Reponsenivmax,
+                            row.desactive,
+                            row.lastupdated,
+                            row.usrid
+                        )
+                    )
+            elif type=="compétences":
+                for row in toStored.itertuples(index=False):
+                    
+                    database.execute_query('''
+                    INSERT INTO evaluationscompposte (posteid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''',         ( row.posteid,
+                            row.evalid,
+                            row.critereid,
+                            row.sscritereid,
+                            row.questionnombre,
+                            row.Reponsenivmin,
+                            row.Reponsenivmax,
+                            row.desactive,
+                            row.lastupdated,
+                            row.usrid))
+    if fonctionPoste=="fonction":
+        if type is not None:
+            if type=="responsabilités":
+                for row in toStored.itertuples(index=False):
+
+                    database.execute_query('''
+                    INSERT INTO questionreponsefonction (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''',         ( row.posteid,
+                            row.evalid,
+                            row.critereid,
+                            row.sscritereid,
+                            row.questionnombre,
+                            row.Reponsenivmin,
+                            row.Reponsenivmax,
+                            row.desactive,
+                            row.lastupdated,
+                            row.usrid))
+            elif type=="compétences":
+                for row in toStored.itertuples(index=False):
+                    database.execute_query('''
+                    INSERT INTO evaluationscompfct (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                    VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                ''',         ( row.posteid,
+                            row.evalid,
+                            row.critereid,
+                            row.sscritereid,
+                            row.questionnombre,
+                            row.Reponsenivmin,
+                            row.Reponsenivmax,
+                            row.desactive,
+                            row.lastupdated,
+                            row.usrid))
+database.commit()

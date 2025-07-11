@@ -24,9 +24,14 @@ conn=database("data.db")
 conn.connect()
 if len(sys.argv) > 1 :
     CahierChargeName = sys.argv[1]
+    posteid = sys.argv[2] if len(sys.argv) > 2 else None
+    userid = sys.argv[3] if len(sys.argv) > 3 else None
+    fonctionPoste = sys.argv[4] if len(sys.argv) > 4 else None
+    type = sys.argv[5] if len(sys.argv) > 5 else None
 else:
     print("Usage: python evaluateFunction.py <CahierCharge>")
     sys.exit(1)
+
 
 
 def contains_verb(text):

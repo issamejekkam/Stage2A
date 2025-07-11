@@ -6,7 +6,6 @@ import urllib.parse
 
 app = FastAPI()
 
-
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -15,22 +14,24 @@ app.add_middleware(
 )
 
 class FormData(BaseModel):
-    param: str
-
+    filename: str
+    posteid: str
+    userid: str
+    fonctionPoste: str
+    type: str
 
 @app.post("/submit")
 async def receive_data(data: FormData):
-    
-
-    raw_param = data.param
-    param = urllib.parse.unquote_plus(raw_param)
-    print(f"🔹 Received param: {param}")
-    
+    print(f"📦 Reçu depuis VB.NET :")
+    print(f" - filename: {data.filename}")
+    print(f" - posteid: {data.posteid}")
+    print(f" - userid: {data.userid}")
+    print(f" - fonction/poste: {data.fonctionPoste}")
+    print(f" - type: {data.type}")
 
     try:
-        # Run evaluateFunction.py
         result1 = subprocess.run(
-            ["python3", "evaluateFunction.py", param],
+            ["python3", "evaluateFunction.py", data.filename, data.posteid,data.userid, data.fonctionPoste, data.type],
             capture_output=True,
             text=True
         )
@@ -40,7 +41,7 @@ async def receive_data(data: FormData):
 
         # Run ComparaisonLexicale.py
         result2 = subprocess.run(
-            ["python3", "ComparaisonLexicale.py", param],
+            ["python3", "ComparaisonLexicale.py", data.filename, data.posteid,data.userid, data.fonctionPoste, data.type],
             capture_output=True,
             text=True
         )
@@ -49,9 +50,8 @@ async def receive_data(data: FormData):
             print("❌ ComparaisonLexicale.py stderr:\n", result2.stderr)
 
         return {
-            "message": f"Command executed with param: {param}",
+            "message": f"Command executed with param: {data.filename, data.posteid,data.userid, data.fonctionPoste, data.type}",
         }
-
     except Exception as e:
-        print("🔥 Exception occurred:", e)
+        print("🔥 Erreur lors de l'exécution:", e)
         return {"error": str(e)}
