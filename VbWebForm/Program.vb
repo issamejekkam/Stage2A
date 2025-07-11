@@ -15,26 +15,34 @@ Module Program
             Dim response = context.Response
 
             If request.HttpMethod = "POST" AndAlso request.Url.AbsolutePath = "/submit" Then
-                ' Read the form data
+                ' Lire le contenu du formulaire
                 Dim body As String
                 Using reader As New StreamReader(request.InputStream, request.ContentEncoding)
                     body = reader.ReadToEnd()
                 End Using
 
-                ' Parse the form data (simple parsing for "filename" field)
-                Dim filenameValue As String = ""
+                ' Extraire toutes les données du formulaire
+                Dim formValues As New Dictionary(Of String, String)
                 For Each pair In body.Split("&"c)
                     Dim kv = pair.Split("="c)
-                    If kv.Length = 2 AndAlso kv(0) = "filename" Then
-                        filenameValue = Uri.UnescapeDataString(kv(1))
+                    If kv.Length = 2 Then
+                        formValues(kv(0)) = Uri.UnescapeDataString(kv(1))
                     End If
                 Next
 
-                ' ✅ Send to FastAPI
+                ' Construire le JSON
+                Dim json As String = "{" &
+                    $"""filename"":""{formValues("filename")}""," &
+                    $"""posteid"":""{formValues("posteid")}""," &
+                    $"""userid"":""{formValues("userid")}""," &
+                    $"""fonctionPoste"":""{formValues("fonctionPoste")}""," &
+                    $"""type"":""{formValues("type")}""" &
+                "}"
+
+                ' Envoyer à FastAPI
                 Dim apiResult As String = ""
                 Try
                     Dim fastapiUrl As String = "http://localhost:8000/submit"
-                    Dim json As String = "{""param"":""" & filenameValue & """}"
                     Dim data As Byte() = Encoding.UTF8.GetBytes(json)
 
                     Dim apiRequest As HttpWebRequest = CType(WebRequest.Create(fastapiUrl), HttpWebRequest)
@@ -57,13 +65,13 @@ Module Program
                     Console.WriteLine(apiResult)
                 End Try
 
-                ' Show confirmation in the browser
+                ' Réponse HTML
                 Dim html As String =
                     "<!DOCTYPE html>" &
                     "<html><body>" &
-                    "<h2>File filename: " & filenameValue & " sent to FastAPI.</h2>" &
-                    "<p>FastAPI Response: " & apiResult & "</p>" &
-                    "<a href='/'>Back</a>" &
+                    "<h2>Données envoyées à FastAPI.</h2>" &
+                    "<p>Réponse: " & apiResult & "</p>" &
+                    "<a href='/'>Retour</a>" &
                     "</body></html>"
 
                 Dim buffer = Encoding.UTF8.GetBytes(html)
@@ -72,16 +80,31 @@ Module Program
                 response.OutputStream.Close()
 
             Else
-                ' Show the form
+                ' Formulaire HTML
                 Dim html As String =
                     "<!DOCTYPE html>" &
                     "<html><head><meta charset=""UTF-8""></head><body>" &
                     "<form action='/submit' method='post'>" &
-                    "  <label for='filename'>filename:</label>" &
-                    "  <input type='text' id='filename' name='filename'><br><br>" &
-                    "  <input type='submit' value='Submit'>" &
+                    "<label for='filename'>filename:</label>" &
+                    "<input type='text' id='filename' name='filename'><br><br>" &
+                    "<label for='posteid'>posteid:</label>" &
+                    "<input type='text' id='posteid' name='posteid'><br><br>" &
+                    "<label for='userid'>userid:</label>" &
+                    "<input type='text' id='userid' name='userid'><br><br>" &
+                    "<label for='fonctionPoste'>fonction/poste ?</label>" &
+                    "<select id='fonctionPoste' name='fonctionPoste'>" &
+                    "<option value='fonction'>fonction</option>" &
+                    "<option value='poste'>poste</option>" &
+                    "</select><br><br>" &
+                    "<label for='type'>Choisissez le type d'évaluation:</label>" &
+                    "<select id='type' name='type'>" &
+                    "<option value='responsabilités'>responsabilités</option>" &
+                    "<option value='compétences'>compétences</option>" &
+                    "</select><br><br>" &
+                    "<input type='submit' value='Submit'>" &
                     "</form>" &
                     "</body></html>"
+
 
                 Dim buffer = Encoding.UTF8.GetBytes(html)
                 response.ContentLength64 = buffer.Length
@@ -91,3 +114,5 @@ Module Program
         End While
     End Sub
 End Module
+
+
