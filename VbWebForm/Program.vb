@@ -32,11 +32,12 @@ Module Program
 
                 ' Construire le JSON
                 Dim json As String = "{" &
-                    $"""filename"":""{formValues("filename")}""," &
-                    $"""posteid"":""{formValues("posteid")}""," &
-                    $"""userid"":""{formValues("userid")}""," &
-                    $"""fonctionPoste"":""{formValues("fonctionPoste")}""," &
-                    $"""type"":""{formValues("type")}""" &
+                    """filename"":""" & formValues("filename") & """," &
+                    """posteid"":""" & formValues("posteid") & """," &
+                    """userid"":""" & formValues("userid") & """," &
+                    """fonctionPoste"":""" & formValues("fonctionPoste") & """," &
+                    """type"":""" & formValues("type") & """," &
+                    """lexicale"":""" & If(formValues.ContainsKey("lexicale"), formValues("lexicale"), "false") & """" &
                 "}"
 
                 ' Envoyer à FastAPI
@@ -49,6 +50,8 @@ Module Program
                     apiRequest.Method = "POST"
                     apiRequest.ContentType = "application/json"
                     apiRequest.ContentLength = data.Length
+                    apiRequest.Timeout = 600000 
+                    apiRequest.ReadWriteTimeout = 600000
 
                     Using stream = apiRequest.GetRequestStream()
                         stream.Write(data, 0, data.Length)
@@ -81,29 +84,31 @@ Module Program
 
             Else
                 ' Formulaire HTML
-                Dim html As String =
-                    "<!DOCTYPE html>" &
-                    "<html><head><meta charset=""UTF-8""></head><body>" &
-                    "<form action='/submit' method='post'>" &
-                    "<label for='filename'>filename:</label>" &
-                    "<input type='text' id='filename' name='filename'><br><br>" &
-                    "<label for='posteid'>posteid:</label>" &
-                    "<input type='text' id='posteid' name='posteid'><br><br>" &
-                    "<label for='userid'>userid:</label>" &
-                    "<input type='text' id='userid' name='userid'><br><br>" &
-                    "<label for='fonctionPoste'>fonction/poste ?</label>" &
-                    "<select id='fonctionPoste' name='fonctionPoste'>" &
-                    "<option value='fonction'>fonction</option>" &
-                    "<option value='poste'>poste</option>" &
-                    "</select><br><br>" &
-                    "<label for='type'>Choisissez le type d'évaluation:</label>" &
-                    "<select id='type' name='type'>" &
-                    "<option value='responsabilités'>responsabilités</option>" &
-                    "<option value='compétences'>compétences</option>" &
-                    "</select><br><br>" &
-                    "<input type='submit' value='Submit'>" &
-                    "</form>" &
-                    "</body></html>"
+            Dim html As String =
+                "<!DOCTYPE html>" &
+                "<html><head><meta charset=""UTF-8""></head><body>" &
+                "<form action='/submit' method='post'>" &
+                "<label for='filename'>filename:</label>" &
+                "<input type='text' id='filename' name='filename'><br><br>" &
+                "<label for='posteid'>posteid:</label>" &
+                "<input type='text' id='posteid' name='posteid'><br><br>" &
+                "<label for='userid'>userid:</label>" &
+                "<input type='text' id='userid' name='userid'><br><br>" &
+                "<label for='fonctionPoste'>fonction/poste ?</label>" &
+                "<select id='fonctionPoste' name='fonctionPoste'>" &
+                "<option value='fonction'>fonction</option>" &
+                "<option value='poste'>poste</option>" &
+                "</select><br><br>" &
+                "<label for='type'>Choisissez le type d'évaluation:</label>" &
+                "<select id='type' name='type'>" &
+                "<option value='responsabilités'>responsabilités</option>" &
+                "<option value='compétences'>compétences</option>" &
+                "</select><br><br>" &
+                "<label for='lexicale'>Lexicale ?</label>" &
+                "<input type='checkbox' id='lexicale' name='lexicale' value='true'><br><br>" &
+                "<input type='submit' value='Submit'>" &
+                "</form>" &
+                "</body></html>"
 
 
                 Dim buffer = Encoding.UTF8.GetBytes(html)

@@ -19,6 +19,7 @@ class FormData(BaseModel):
     userid: str
     fonctionPoste: str
     type: str
+    lexicale: str
 
 @app.post("/submit")
 async def receive_data(data: FormData):
@@ -28,10 +29,11 @@ async def receive_data(data: FormData):
     print(f" - userid: {data.userid}")
     print(f" - fonction/poste: {data.fonctionPoste}")
     print(f" - type: {data.type}")
+    print(f" - lexicale: {data.lexicale}")
 
     try:
         result1 = subprocess.run(
-            ["python3", "evaluateFunction.py", data.filename, data.posteid,data.userid, data.fonctionPoste, data.type],
+            ["python3", "evaluateFunction.py", data.filename, data.posteid,data.userid, data.fonctionPoste, data.type,data.lexicale],
             capture_output=True,
             text=True
         )
@@ -39,18 +41,18 @@ async def receive_data(data: FormData):
         if result1.stderr:
             print("❌ evaluateFunction.py stderr:\n", result1.stderr)
 
-        # Run ComparaisonLexicale.py
-        result2 = subprocess.run(
-            ["python3", "ComparaisonLexicale.py", data.filename, data.posteid,data.userid, data.fonctionPoste, data.type],
-            capture_output=True,
-            text=True
-        )
-        print("✅ ComparaisonLexicale.py stdout:\n", result2.stdout)
-        if result2.stderr:
-            print("❌ ComparaisonLexicale.py stderr:\n", result2.stderr)
+        # # Run ComparaisonLexicale.py
+        # result2 = subprocess.run(
+        #     ["python3", "ComparaisonLexicale.py", data.filename, data.posteid,data.userid, data.fonctionPoste, data.type],
+        #     capture_output=True,
+        #     text=True
+        # )
+        # print("✅ ComparaisonLexicale.py stdout:\n", result2.stdout)
+        # if result2.stderr:
+        #     print("❌ ComparaisonLexicale.py stderr:\n", result2.stderr)
 
         return {
-            "message": f"Command executed with param: {data.filename, data.posteid,data.userid, data.fonctionPoste, data.type}",
+            "message": f"Command executed with param: {data.filename, data.posteid,data.userid, data.fonctionPoste, data.type,data.lexicale}",
         }
     except Exception as e:
         print("🔥 Erreur lors de l'exécution:", e)
