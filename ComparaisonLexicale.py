@@ -1,37 +1,10 @@
 from database import database
 import sys
-import spacy
+from spacyLoader import nlp
+
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
-
-KEYWORDS = {
-    "Formation de base":          ["AFP", "CFC", "Bachelor", "Master", "doctorat", "université", "HES", "ES"],
-    "Formation complémentaire":   ["complémentaire","complétée","certification"],
-    "Durée":                      [ "ans", "année"],
-    "Nature":                     ["professionnelle","expérience", "préalable", "même type"],
-    "Autonomie de décision":      ["consignes", "directives", "autonome", "autonomie","approuve"],
-    "Responsabilités budgétaires":["budget", "financier", "facturation", "paiements"],
-    # "Responsabilités de planification à court terme":
-    #                                 ["court terme", "plan", "optimisation", "procédure"],
-    # "Responsabilités de planification à long terme":
-    #                                 ["long terme", "prospective", "anticiper", "recherches", "études"],
-    # "Impact externe des prestations":
-    #                                 ["image", "représentatif", "conséquences", "tiers"],
-    # "Impact interne des prestations":
-    #                                 ["coûts", "bon fonctionnement", "irréversibles"],
-    "Connaissances linguistiques":["français","française", "langue", "bilingue", "trilingue"],
-    "Nature des communications internes":["communications", "échanges", "négociations", "décisions"],
-    "Nature des communications externes":["communications", "informer", "explication", "négociations"],
-    "Complexité de l'environnement":["difficultés", "adaptabilité", "flexibilité","complexe"],
-    # "Evolution de l'environnement":["évolution", "processus", "rapide"],
-    "Diversité des missions":     ["missions", "tâches", "diverses"],
-    # "Diversité et quantité des postes à gérer":
-    #                                 ["poste", "gère", "grand nombre", "activités"],
-    "Rôle dans la gestion des ressources humaines":
-                                    ["animation", "recrutement", "humaines", "ressources humaines"],
-    "Innovation":                 ["innovation", "innovatrice"]
-}
 
 KEYWORDS = {
     # 1. Formation & expérience
@@ -408,7 +381,6 @@ KEYWORDS = {
     ]
 }
 
-nlp = spacy.load("fr_core_news_md")  
 
 database= database("data.db")
 database.connect()
