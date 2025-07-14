@@ -29,11 +29,35 @@ conn.connect()
 
 
 if len(sys.argv) > 1 :
-    CahierChargeName = sys.argv[1]
-    posteid = sys.argv[2] if len(sys.argv) > 2 else None
-    userid = sys.argv[3] if len(sys.argv) > 3 else None
-    fonctionPoste = sys.argv[4] if len(sys.argv) > 4 else None
-    type = sys.argv[5] if len(sys.argv) > 5 else None
+    if len(sys.argv) > 1:
+        CahierChargeName = sys.argv[1]
+    else:
+        print("Error: CahierChargeName argument is missing.")
+        sys.exit(1)
+    if len(sys.argv) > 2:
+        posteid = sys.argv[2]
+    else:
+        print("Error: posteid argument is missing.")
+        sys.exit(1)
+
+    if len(sys.argv) > 3:
+        userid = sys.argv[3]
+    else:
+        print("Error: userid argument is missing.")
+        sys.exit(1)
+
+    if len(sys.argv) > 4:
+        fonctionPoste = sys.argv[4]
+    else:
+        print("Error: fonctionPoste argument is missing.")
+        sys.exit(1)
+
+    if len(sys.argv) > 5:
+        type = sys.argv[5]
+    else:
+        print("Error: type argument is missing.")
+        sys.exit(1)
+
     lexicale = sys.argv[6] if len(sys.argv) > 6 else None
 else:
     print("Usage: python evaluateFunction.py <CahierCharge>")
@@ -206,9 +230,28 @@ if title == titles[-1]:
     with open(f"results/all_matches_of_{CahierChargeName}.json", "w", encoding="utf-8") as f:
         json.dump(results_for_json, f, ensure_ascii=False, indent=2)
     json_content_str_matched = json.dumps(results_for_json, ensure_ascii=False)
-    conn.execute_query('''
-    INSERT or replace INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
-''', (f"all_matches_of_{CahierChargeName}.json", json_content_str_matched))
+    jsoncontentdf= pd.DataFrame(results_for_json)
+
+    for row in jsoncontentdf.itertuples(index=False):
+        conn.execute_query(
+            '''
+             INSERT OR REPLACE INTO all_matches (
+                filename,title, question, sentence, score, pts
+            ) VALUES (?,?, ?,?,?, ?)
+            ''',
+            (
+                f"{CahierChargeName}",
+                row.title,
+                row.question,
+                row.sentence,
+                row.score,
+                row.pts
+            ))
+
+
+
+
+
     conn.commit()
 
 
@@ -225,9 +268,11 @@ with open(f"results/not_matched_of_{CahierChargeName}.json", "w", encoding="utf-
 json_content_str = json.dumps(to_use, ensure_ascii=False)
 
 
-conn.execute_query('''
-    INSERT or replace INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
-''', (f"not_matched_of_{CahierChargeName}.json", json_content_str))
+for row in to_use:
+    conn.execute_query('''
+        INSERT or replace INTO not_matched (filename, sentence) VALUES (?, ?)
+    ''', (f"{CahierChargeName}", row))
+
 
 conn.commit()
 results_for_json = pd.DataFrame(results_for_json)
@@ -266,9 +311,6 @@ if lexicale == "false":
 
 
     json_content = results_for_json.to_json(orient="records", force_ascii=False, indent=4)
-    conn.execute_query('''
-        INSERT or replace INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
-    ''', (f"all_matches_best_of_{CahierChargeName}.json", json_content))
 
     conn.commit()
     resultats_finale=results_for_json['codeReponse']
@@ -301,7 +343,7 @@ if lexicale == "false":
                     for row in toStored.itertuples(index=False):
                         conn.execute_query(
                             '''
-                            INSERT INTO questionreponseposte (
+                            INSERT or replace INTO questionreponseposte (
                                 posteid, evalid, critereid, sscritereid, questionnombre,
                                 Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid
                             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -323,7 +365,7 @@ if lexicale == "false":
                     for row in toStored.itertuples(index=False):
                         
                         conn.execute_query('''
-                        INSERT INTO evaluationscompposte (posteid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        INSERT or replace INTO evaluationscompposte (posteid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ''',         ( row.posteid,
                                 row.evalid,
@@ -341,7 +383,7 @@ if lexicale == "false":
                     for row in toStored.itertuples(index=False):
 
                         conn.execute_query('''
-                        INSERT INTO questionreponsefonction (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        INSERT or replace INTO questionreponsefonction (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ''',         ( row.posteid,
                                 row.evalid,
@@ -356,7 +398,7 @@ if lexicale == "false":
                 elif type=="compétences":
                     for row in toStored.itertuples(index=False):
                         conn.execute_query('''
-                        INSERT INTO evaluationscompfct (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        INSERT or replace INTO evaluationscompfct (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ''',         ( row.posteid,
                                 row.evalid,
@@ -828,10 +870,7 @@ if lexicale=="true":
     resultats_fin.to_json(f"results/after_comparaison_lexicale_of_{CahierChargeName}.json", orient="records", force_ascii=False, indent=4)
 
     json_content = resultats_fin.to_json(orient="records", force_ascii=False, indent=4)
-    conn.execute_query('''
-        INSERT or replace INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
-    ''', (f"after_comparaison_lexicale_of_{CahierChargeName}.json", json_content))
-
+ 
     conn.commit()
     resultats_finale=resultats_fin['codeReponse']
 
@@ -863,7 +902,7 @@ if lexicale=="true":
                     for row in toStored.itertuples(index=False):
                         conn.execute_query(
                             '''
-                            INSERT INTO questionreponseposte (
+                            INSERT or replace INTO questionreponseposte (
                                 posteid, evalid, critereid, sscritereid, questionnombre,
                                 Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid
                             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
@@ -885,7 +924,7 @@ if lexicale=="true":
                     for row in toStored.itertuples(index=False):
                         
                         conn.execute_query('''
-                        INSERT INTO evaluationscompposte (posteid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        INSERT or replace INTO evaluationscompposte (posteid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ''',         ( row.posteid,
                                 row.evalid,
@@ -903,7 +942,7 @@ if lexicale=="true":
                     for row in toStored.itertuples(index=False):
 
                         conn.execute_query('''
-                        INSERT INTO questionreponsefonction (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        INSERT or replace INTO questionreponsefonction (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ''',         ( row.posteid,
                                 row.evalid,
@@ -918,7 +957,7 @@ if lexicale=="true":
                 elif type=="compétences":
                     for row in toStored.itertuples(index=False):
                         conn.execute_query('''
-                        INSERT INTO evaluationscompfct (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        INSERT or replace INTO evaluationscompfct (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
                         VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
                     ''',         ( row.posteid,
                                 row.evalid,
