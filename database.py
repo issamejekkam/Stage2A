@@ -137,3 +137,10 @@ class database:
                 keywords_dict[keyword] = []
             keywords_dict[keyword].append(word)
         return keywords_dict
+    
+    def insert_keywords(self, keyword, word):
+        """
+        Insère un mot-clé et un mot dans la base de données.
+        """
+        query = "INSERT OR IGNORE INTO keywords (keyword, word) VALUES (?, ?)"
+        self.execute_query(query, (keyword, word))
