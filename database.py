@@ -122,3 +122,18 @@ class database:
             self.connection = None
         else:
             raise Exception("Database connection is not established.")
+        
+    def readkeywords(self):
+        """
+        Lit les mots-clés depuis la base de données et les retourne sous forme de DataFrame.
+        """
+        query = "SELECT * FROM keywords"
+        results=pd.read_sql_query(query, self.connection)
+        keywords_dict = {}
+        for index, row in results.iterrows():
+            keyword = row['keyword']
+            word = row['word']
+            if keyword not in keywords_dict:
+                keywords_dict[keyword] = []
+            keywords_dict[keyword].append(word)
+        return keywords_dict
