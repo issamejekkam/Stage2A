@@ -1,23 +1,33 @@
-
+# Import necessary libraries
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 import pandas as pd
 import sqlite3
 import sys
 import json
 import spacy
-nlp = spacy.load("fr_core_news_md")  
 
 
+# Import Classes
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 from pretraitement import Pretraitement
 from database import database
 from similarity import Similarity
 
+# load spacy model & database
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 
-
+nlp = spacy.load("fr_core_news_md")  
 conn=database("data.db")
 conn.connect()
+
+
+# store parameters from command line arguments
+#--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 if len(sys.argv) > 1 :
     CahierChargeName = sys.argv[1]
     posteid = sys.argv[2] if len(sys.argv) > 2 else None
@@ -30,6 +40,10 @@ else:
     sys.exit(1)
 
 
+# Functions
+#--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 
 def contains_verb(text):
     doc = nlp(text)
@@ -40,10 +54,13 @@ def twowordsmin(text):
     return len(text.split()) >= 2
 
 
+# Pretraitement of documents
+#--------------------------------------------------------------------------------------------------------------------------------------------------
+
+
 df = conn.readQuestionnaire()
 CahierCharge = conn.readCahierDeCharges(CahierChargeName)
 questionnaire = df
-
 
 preproc = Pretraitement(CahierCharge, questionnaire)
 preproc._load_spacy()
@@ -52,6 +69,8 @@ df=preproc.keep_abcd_lines(df)
 sentences = preproc.build_cahier_df()
 
 
+# Catch the five best matches for each long sentence (sentencization with spacy)
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 sim       = Similarity(batch_size=32)  
@@ -63,9 +82,7 @@ matches   = sim.top_k_matches(
 )
 
 
-matches.to_excel("results/Test5Results.xlsx", index=False)
 matches_no_duplicates = matches.drop_duplicates(subset=["question_title", "sentence"])
-
 cols_to_drop = [col for col in ["score", "rank", "label"] if col in matches_no_duplicates.columns]
 if cols_to_drop:
     matches_no_duplicates.drop(columns=cols_to_drop, inplace=True)
@@ -84,6 +101,9 @@ for title, sentences in mapping.items():
         rows.append({'title': title, 'sentence': sentence})
 df_sentencized = pd.DataFrame(rows)
 
+
+# Catch the five best matches for each  sentence (sentencization with punctuation)
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 
@@ -132,7 +152,7 @@ titles = [
 ]
 all_matches = []
 
-#
+
 
 
 
@@ -153,6 +173,8 @@ matchesSentences = pd.concat(all_matches, ignore_index=True)
 
 
 
+# store the list of responses to all_matches and not_matched
+#--------------------------------------------------------------------------------------------------------------------------------------------------
 
 
 sentences_used=[]
@@ -190,7 +212,6 @@ if title == titles[-1]:
     conn.commit()
 
 
-
 sentences = []
 for i in mappingSentencized:
     for j in mappingSentencized[i]:
@@ -209,6 +230,13 @@ conn.execute_query('''
 ''', (f"not_matched_of_{CahierChargeName}.json", json_content_str))
 
 conn.commit()
+results_for_json = pd.DataFrame(results_for_json)
+
+#------------------------------------------------------------------------
+#------------------------------------------------------------------------
+# -------------------------semantique----------------------------------
+#------------------------------------------------------------------------
+#------------------------------------------------------------------------
 
 
 if lexicale == "false":
@@ -237,9 +265,119 @@ if lexicale == "false":
     results_for_json.to_json(f"results/all_matches_best_of_{CahierChargeName}.docx.json", orient="records", force_ascii=False, indent=4)
 
 
+    json_content = results_for_json.to_json(orient="records", force_ascii=False, indent=4)
+    conn.execute_query('''
+        INSERT or replace INTO ResultatsJSON (filename, json_content) VALUES (?, ?)
+    ''', (f"all_matches_best_of_{CahierChargeName}.json", json_content))
 
-#-------------------------------------------------
-# --------------------lexicale----------------
+    conn.commit()
+    resultats_finale=results_for_json['codeReponse']
+
+    resultats_finale_sorted= resultats_finale.sort_values(ascending=True).reset_index(drop=True)
+    resultats_finale_sorted
+
+
+    temp = resultats_finale_sorted.str.split('-', expand=True)
+
+    # Étape 2 : séparer la partie gauche du tiret (avant le -) par '.'
+    left_parts = temp[1].str.split('.', expand=True)
+
+    toStored = pd.DataFrame({
+        'posteid': posteid,
+        'evalid': 200,
+        'critereid': temp[0],
+        'sscritereid': left_parts[0],
+        'questionnombre': left_parts[1],
+        'Reponsenivmin': left_parts[2],
+        'Reponsenivmax': left_parts[2],
+        'desactive': 0,
+        'lastupdated': None,
+        'usrid': userid})
+
+    if fonctionPoste is not None:
+        if fonctionPoste=="poste":
+            if type is not None:
+                if type=="responsabilités":
+                    for row in toStored.itertuples(index=False):
+                        conn.execute_query(
+                            '''
+                            INSERT INTO questionreponseposte (
+                                posteid, evalid, critereid, sscritereid, questionnombre,
+                                Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid
+                            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                            ''',
+                            (
+                                row.posteid,
+                                row.evalid,
+                                row.critereid,
+                                row.sscritereid,
+                                row.questionnombre,
+                                row.Reponsenivmin,
+                                row.Reponsenivmax,
+                                row.desactive,
+                                row.lastupdated,
+                                row.usrid
+                            )
+                        )
+                elif type=="compétences":
+                    for row in toStored.itertuples(index=False):
+                        
+                        conn.execute_query('''
+                        INSERT INTO evaluationscompposte (posteid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''',         ( row.posteid,
+                                row.evalid,
+                                row.critereid,
+                                row.sscritereid,
+                                row.questionnombre,
+                                row.Reponsenivmin,
+                                row.Reponsenivmax,
+                                row.desactive,
+                                row.lastupdated,
+                                row.usrid))
+        if fonctionPoste=="fonction":
+            if type is not None:
+                if type=="responsabilités":
+                    for row in toStored.itertuples(index=False):
+
+                        conn.execute_query('''
+                        INSERT INTO questionreponsefonction (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''',         ( row.posteid,
+                                row.evalid,
+                                row.critereid,
+                                row.sscritereid,
+                                row.questionnombre,
+                                row.Reponsenivmin,
+                                row.Reponsenivmax,
+                                row.desactive,
+                                row.lastupdated,
+                                row.usrid))
+                elif type=="compétences":
+                    for row in toStored.itertuples(index=False):
+                        conn.execute_query('''
+                        INSERT INTO evaluationscompfct (fctid, evalid, critereid, sscritereid, questionnombre, Reponsenivmin, Reponsenivmax, desactive, lastupdated, usrid)
+                        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    ''',         ( row.posteid,
+                                row.evalid,
+                                row.critereid,
+                                row.sscritereid,
+                                row.questionnombre,
+                                row.Reponsenivmin,
+                                row.Reponsenivmax,
+                                row.desactive,
+                                row.lastupdated,
+                                row.usrid))
+    conn.commit()
+
+
+#------------------------------------------------------------------------
+#------------------------------------------------------------------------
+# -------------------------lexicale----------------------------------
+#------------------------------------------------------------------------
+#------------------------------------------------------------------------
+
+
 
 if lexicale=="true":
 
@@ -621,7 +759,7 @@ if lexicale=="true":
             "disrupter", "disruption"
         ]
     }
-    resultats=json_content_str_matched
+    resultats=pd.DataFrame(json_content_str_matched)
     def contains_keywords(text, text2, keywords, title):
         text = text.lower()
         if text2 is not None:
