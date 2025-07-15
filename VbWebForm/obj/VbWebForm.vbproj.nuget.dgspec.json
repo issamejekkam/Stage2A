@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/user/Desktop/Stage2A/VbWebForm/VbWebForm.vbproj": {}
+    "/mnt/c/Users/FM/Desktop/JekkamWork/Stage2A/VbWebForm/VbWebForm.vbproj": {}
   },
   "projects": {
-    "/Users/user/Desktop/Stage2A/VbWebForm/VbWebForm.vbproj": {
+    "/mnt/c/Users/FM/Desktop/JekkamWork/Stage2A/VbWebForm/VbWebForm.vbproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/user/Desktop/Stage2A/VbWebForm/VbWebForm.vbproj",
+        "projectUniqueName": "/mnt/c/Users/FM/Desktop/JekkamWork/Stage2A/VbWebForm/VbWebForm.vbproj",
         "projectName": "VbWebForm",
-        "projectPath": "/Users/user/Desktop/Stage2A/VbWebForm/VbWebForm.vbproj",
-        "packagesPath": "/Users/user/.nuget/packages/",
-        "outputPath": "/Users/user/Desktop/Stage2A/VbWebForm/obj/",
+        "projectPath": "/mnt/c/Users/FM/Desktop/JekkamWork/Stage2A/VbWebForm/VbWebForm.vbproj",
+        "packagesPath": "/home/fm/.nuget/packages/",
+        "outputPath": "/mnt/c/Users/FM/Desktop/JekkamWork/Stage2A/VbWebForm/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/user/.nuget/NuGet/NuGet.Config"
+          "/home/fm/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
-          "/usr/local/Cellar/dotnet/9.0.6/libexec/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -39,7 +38,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
@@ -60,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/9.0.6/libexec/sdk/9.0.107/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/fm/miniconda3/envs/tf/lib/dotnet/sdk/9.0.203/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

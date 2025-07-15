@@ -1,0 +1,300 @@
+[
+  {
+    "title": "Analyse et synthèse",
+    "items": [
+      {
+        "question": "La fonction requiert la faculté d'analyser des sujets  complexes qui nécessitent une capacité d'interprétation et de synthèse.",
+        "sentence": "recherches et analyse dans un environnement complexe",
+        "score": 0.5834610462188721,
+        "pts": 42.757
+      }
+    ]
+  },
+  {
+    "title": "Autonomie de décision",
+    "items": [
+      {
+        "question": "La fonction travaille dans le cadre de consignes et directives établies, mais peut définir son propre plan de travail. Elle peut prendre des initiatives pour l'amélioration des prestations, sous le contrôle d'un responsable, dans le respect des règles établies par l'/les institution/s.",
+        "sentence": "Le/la maître/esse-formateur/trice contribue par des propositions motivées et des réalisations à l'amélioration continue de son travail",
+        "score": 0.620070219039917,
+        "pts": 46.8
+      }
+    ]
+  },
+  {
+    "title": "Complexité de l'environnement",
+    "items": [
+      {
+        "question": "La fonction fait fréquemment face à des difficultés qui ne sont pas toujours connues et pour lesquelles la situation générée requiert adaptabilité, flexibilité et initiative.",
+        "sentence": "Adapte le contenu de la formation selon les réalités pratiques de la place de travail",
+        "score": 0.470975399017334,
+        "pts": 27.5275
+      },
+      {
+        "question": "La fonction fait fréquemment face à un degré important de difficultés, souvent nouvelles, et les situations générées requièrent adaptabilité, flexibilité et initiative.",
+        "sentence": "Le formateur/la formatrice veille de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste",
+        "score": 0.4690971374511719,
+        "pts": 50.05
+      }
+    ]
+  },
+  {
+    "title": "Connaissances linguistiques",
+    "items": [
+      {
+        "question": "La fonction requiert des connaissances linguistiques approfondies (lecture, conversation et rédaction) en français.",
+        "sentence": "Le formateur/la formatrice veille à acquérir de nouvelles connaissances professionnelles",
+        "score": 0.2975121736526489,
+        "pts": 4.42
+      }
+    ]
+  },
+  {
+    "title": "Diversité des missions",
+    "items": [
+      {
+        "question": "L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+        "sentence": "toute autre tâche relevant de son champ de compétences peut être requise à la demande du responsable hiérarchique direct",
+        "score": 0.4776226282119751,
+        "pts": 8.58
+      },
+      {
+        "question": "L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+        "sentence": "Autres activités et responsabilités",
+        "score": 0.4752197563648224,
+        "pts": 8.58
+      }
+    ]
+  },
+  {
+    "title": "Diversité et quantité des postes à gérer",
+    "items": [
+      {
+        "question": "La fonction n'a pas de postes directement subordonnés.",
+        "sentence": "Fonctions directement subordonnées",
+        "score": 0.6121608018875122,
+        "pts": 0.0
+      }
+    ]
+  },
+  {
+    "title": "Durée",
+    "items": [
+      {
+        "question": "Une durée minimum de 1 à 3 ans d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+        "sentence": "Formation et expériences professionnelles requises",
+        "score": 0.615134060382843,
+        "pts": 7.8
+      }
+    ]
+  },
+  {
+    "title": "Evolution de l'environnement",
+    "items": [
+      {
+        "question": "La fonction s'exerce dans un environnement à évolution régulière qui nécessite une adaptation aux processus de travail et aux prestations fournies.",
+        "sentence": "Le formateur/la formatrice veille de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste",
+        "score": 0.6183974742889404,
+        "pts": 15.015
+      }
+    ]
+  },
+  {
+    "title": "Formation complémentaire",
+    "items": [
+      {
+        "question": "Deux formations complémentaires, ou plus, sont nécessaires pour l'exercice de la fonction.",
+        "sentence": "et propose les formations continues et autres démarches utiles à l'exercice de ses fonctions",
+        "score": 0.5881156921386719,
+        "pts": 19.5
+      },
+      {
+        "question": "Deux formations complémentaires, ou plus, sont nécessaires pour l'exercice de la fonction.",
+        "sentence": "Formation et expériences professionnelles requises",
+        "score": 0.5728029012680054,
+        "pts": 19.5
+      }
+    ]
+  },
+  {
+    "title": "Formation de base",
+    "items": [
+      {
+        "question": "La fonction requiert une formation professionnelle initiale de 2 ans (AFP) ou équivalent.",
+        "sentence": "Formation et expériences professionnelles requises",
+        "score": 0.5125771760940552,
+        "pts": 8.645
+      },
+      {
+        "question": "La fonction requiert une formation post grade ou équivalent.",
+        "sentence": "/ Enseignant niveau HEP / enseignant en école professionnel",
+        "score": 0.50616055727005,
+        "pts": 36.4
+      },
+      {
+        "question": "La fonction requiert une formation professionnelle initiale de 2 ans (AFP) ou équivalent.",
+        "sentence": "Le formateur/la formatrice veille à acquérir de nouvelles connaissances professionnelles",
+        "score": 0.49432650208473206,
+        "pts": 8.645
+      },
+      {
+        "question": "La fonction requiert un Bachelor (Université ou HES) ou équivalent.",
+        "sentence": "Diplôme de travailleur-euse social-e de niveau HES",
+        "score": 0.49148720502853394,
+        "pts": 20.93
+      }
+    ]
+  },
+  {
+    "title": "Impact externe des prestations",
+    "items": [
+      {
+        "question": "La fonction a un rôle participatif dans la prestation fournie aux bénéficiares de prestations, dans le cadre de procédures standardisées. La qualité des documents/informations/prestations qu'elle fournit peut influencer l'image de l'/des institution/s et avoir des conséquences sur les bénéfiaires de prestations.",
+        "sentence": "dans le cadre des projets et actions de formation et d'évaluation professionnelle",
+        "score": 0.4807097315788269,
+        "pts": 11.11968
+      },
+      {
+        "question": "La fonction a un rôle participatif dans la prestation fournie aux bénéficiares de prestations, dans le cadre de procédures standardisées. La qualité des documents/informations/prestations qu'elle fournit peut influencer l'image de l'/des institution/s et avoir des conséquences sur les bénéfiaires de prestations.",
+        "sentence": "Le/la maître/esse-formateur/trice contribue par des propositions motivées et des réalisations à l'amélioration continue de son travail",
+        "score": 0.4796122610569,
+        "pts": 11.11968
+      },
+      {
+        "question": "La fonction a un rôle participatif dans la prestation fournie aux bénéficiares de prestations, dans le cadre de procédures standardisées. La qualité des documents/informations/prestations qu'elle fournit peut influencer l'image de l'/des institution/s et avoir des conséquences sur les bénéfiaires de prestations.",
+        "sentence": "agir comme soutien et facilitateur au sein de l'équipe socio-éducative dans les relations",
+        "score": 0.47139495611190796,
+        "pts": 11.11968
+      },
+      {
+        "question": "La fonction a un rôle participatif dans la prestation fournie aux bénéficiares de prestations, dans le cadre de procédures standardisées. La qualité des documents/informations/prestations qu'elle fournit peut influencer l'image de l'/des institution/s et avoir des conséquences sur les bénéfiaires de prestations.",
+        "sentence": "le/la maître/esse-formateur/trice veille à établir un partenariat basé sur le respect de l'identité de l'entreprise et de ses spécificités",
+        "score": 0.45311617851257324,
+        "pts": 11.11968
+      }
+    ]
+  },
+  {
+    "title": "Impact interne des prestations",
+    "items": [
+      {
+        "question": "L'activité de la fonction a un impact modéré tant sur les coûts que sur le bon fonctionnement de l'/des institution/s.",
+        "sentence": "agir comme soutien et facilitateur au sein de l'équipe socio-éducative dans les relations",
+        "score": 0.3801005780696869,
+        "pts": 10.02456
+      },
+      {
+        "question": "L'activité de la fonction a un impact déterminant tant sur les coûts que sur le bon fonctionnement de la Fondation et les situations générées deviennent fréquemment irréversibles du fait du coût de leur correction.",
+        "sentence": "du système de gestion et de la Fondation dans sa globalité",
+        "score": 0.35606932640075684,
+        "pts": 28.6416
+      }
+    ]
+  },
+  {
+    "title": "Innovation",
+    "items": [
+      {
+        "question": "L'exercice de la fonction requiert la capacité d'adapter et parfois de créer des processus et/ou des outils, dans le but d'améliorer la qualité des prestations offertes et/ou l'organisation du travail.",
+        "sentence": "Le formateur/la formatrice veille de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste",
+        "score": 0.5840592384338379,
+        "pts": 34.749
+      }
+    ]
+  },
+  {
+    "title": "Nature",
+    "items": [
+      {
+        "question": "La fonction requiert de l'expérience professionnelle préalable.",
+        "sentence": "Formation et expériences professionnelles requises",
+        "score": 0.7822049260139465,
+        "pts": 11.7
+      }
+    ]
+  },
+  {
+    "title": "Nature des communications externes",
+    "items": [
+      {
+        "question": "Les communications impliquent des échanges d'informations sur des sujets élaborés et complexes dans un but d'explication.",
+        "sentence": "recherches et analyse dans un environnement complexe",
+        "score": 0.47171199321746826,
+        "pts": 60.775
+      }
+    ]
+  },
+  {
+    "title": "Nature des communications internes",
+    "items": [
+      {
+        "question": "Les interactions impliquent des échanges d'informations sur des sujets courants et/ou élaborés, parfois complexes, dans le but de préparer des décisions.",
+        "sentence": "Exercer celle-ci en dans une recherche de solutions et de conseils en collaboration avec la famille ou les proches",
+        "score": 0.5004746913909912,
+        "pts": 35.36
+      },
+      {
+        "question": "Les communications impliquent des échanges d'informations et des négociations sur des sujets complexes dans le cadre de prises de décisions. La fonction nécessite des capacités à négocier, comprendre et gérer différentes perceptions des prestations offertes.",
+        "sentence": "en démontrant une forte aptitude dans la relation avec les familles et dans la gestion des situations complexes",
+        "score": 0.47093796730041504,
+        "pts": 66.3
+      }
+    ]
+  },
+  {
+    "title": "Responsabilités budgétaires",
+    "items": [
+      {
+        "question": "La fonction participe de manière déterminante à l'élaboration et assure le suivi financier d'un ou de plusieurs budgets.",
+        "sentence": "Participer à la bonne gestion administrative et financière du budget",
+        "score": 0.6809578537940979,
+        "pts": 44.928
+      }
+    ]
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "items": [
+      {
+        "question": "La fonction participe à l'élaboration et/ou à la mise en oeuvre de plans à court terme.",
+        "sentence": "en fonction des objectifs liés au projet",
+        "score": 0.602111279964447,
+        "pts": 15.444
+      }
+    ]
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à long terme",
+    "items": [
+      {
+        "question": "La fonction contribue de manière active à l'élaboration et/ou au suivi de plans à long terme et/ou a un rôle de conseil dans l'évaluation des besoins futurs.",
+        "sentence": "Participe au choix et à l'élaboration d'un projet de formation",
+        "score": 0.5613270401954651,
+        "pts": 11.934
+      },
+      {
+        "question": "La fonction est responsable de l'élaboration et de la mise en oeuvre et/ou du suivi de plans à long terme. Elle peut prendre part aux différentes recherches et études mises en oeuvre en vue de réalisations futures à longue échéance.",
+        "sentence": "en fonction des objectifs liés au projet",
+        "score": 0.5353108644485474,
+        "pts": 23.868
+      }
+    ]
+  },
+  {
+    "title": "Rôle dans la gestion des ressources humaines",
+    "items": [
+      {
+        "question": "Elle a un rôle d'animation incluant le transfert de connaissances et/ou de formation des collaborateurs/trices; elle coordonne l'exécution de leurs activités.",
+        "sentence": "Le/la maître/esse-formateur/trice contribue par des propositions motivées et des réalisations à l'amélioration continue de son travail",
+        "score": 0.6775248646736145,
+        "pts": 11.232
+      },
+      {
+        "question": "Elle a un rôle d'animation incluant le transfert de connaissances et/ou de formation des collaborateurs/trices; elle coordonne l'exécution de leurs activités.",
+        "sentence": "Le formateur/la formatrice veille de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste",
+        "score": 0.6728049516677856,
+        "pts": 11.232
+      }
+    ]
+  }
+]

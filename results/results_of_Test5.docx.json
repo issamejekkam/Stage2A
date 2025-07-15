@@ -1,0 +1,394 @@
+[
+  {
+    "title": "Analyse et synthèse",
+    "question": "La fonction requiert la faculté d'analyser des sujets parfois complexes en se référant à des modèles et à des connaissances déjà expérimentés.",
+    "sentence": "gérer d'une manière professionnelle des situations définies et structurées",
+    "score": 0.5192305445671082,
+    "pts": 29.601
+  },
+  {
+    "title": "Autonomie de décision",
+    "question": "La fonction applique des consignes et des directives établies.",
+    "sentence": "en appliquant des consignes",
+    "score": 0.7907266020774841,
+    "pts": 23.4
+  },
+  {
+    "title": "Complexité de l'environnement",
+    "question": "La fonction fait fréquemment face à un degré important de difficultés, souvent nouvelles, et les situations générées requièrent adaptabilité, flexibilité et initiative.",
+    "sentence": "Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+    "score": 0.5025104284286499,
+    "pts": 50.05
+  },
+  {
+    "title": "Complexité de l'environnement",
+    "question": "La fonction fait fréquemment face à des difficultés qui ne sont pas toujours connues et pour lesquelles la situation générée requiert adaptabilité, flexibilité et initiative.",
+    "sentence": "gérer d'une manière professionnelle des situations définies et structurées",
+    "score": 0.4913979172706604,
+    "pts": 27.5275
+  },
+  {
+    "title": "Connaissances linguistiques",
+    "question": "La fonction requiert des connaissances linguistiques approfondies (lecture, conversation et rédaction) en français.",
+    "sentence": "gérer d'une manière professionnelle des situations définies et structurées",
+    "score": 0.34343549609184265,
+    "pts": 4.42
+  },
+  {
+    "title": "Connaissances linguistiques",
+    "question": "La fonction requiert des connaissances approfondies (lecture, conversation et rédaction) dans au moins deux langues, dont le français.",
+    "sentence": "La fonction requiert une formation professionnelle initiale de deux ans",
+    "score": 0.30565059185028076,
+    "pts": 11.05
+  },
+  {
+    "title": "Connaissances linguistiques",
+    "question": "La fonction requiert des connaissances linguistiques de base (lecture, conversation, rédaction simple) en français.",
+    "sentence": "2 Accomplir des tâches administratives simples en utilisant les outils informatiques",
+    "score": 0.30024224519729614,
+    "pts": 2.21
+  },
+  {
+    "title": "Connaissances linguistiques",
+    "question": "La fonction requiert des connaissances linguistiques de base (lecture, conversation, rédaction simple) en français.",
+    "sentence": "Formation de base",
+    "score": 0.2667451500892639,
+    "pts": 2.21
+  },
+  {
+    "title": "Connaissances linguistiques",
+    "question": "La fonction requiert des connaissances linguistiques approfondies (lecture, conversation et rédaction) en français.",
+    "sentence": "Formation et expériences professionnelles requises",
+    "score": 0.25973382592201233,
+    "pts": 4.42
+  },
+  {
+    "title": "Connaissances linguistiques",
+    "question": "La fonction requiert des connaissances linguistiques approfondies (lecture, conversation et rédaction) en français.",
+    "sentence": "Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+    "score": 0.24697618186473846,
+    "pts": 4.42
+  },
+  {
+    "title": "Diversité des missions",
+    "question": "L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+    "sentence": "Autres activités et responsabilités",
+    "score": 0.47521984577178955,
+    "pts": 8.58
+  },
+  {
+    "title": "Diversité des missions",
+    "question": "L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+    "sentence": "Activités et responsabilités principales",
+    "score": 0.4431781768798828,
+    "pts": 8.58
+  },
+  {
+    "title": "Diversité des missions",
+    "question": "L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+    "sentence": "Accomplir sa mission",
+    "score": 0.43410399556159973,
+    "pts": 8.58
+  },
+  {
+    "title": "Diversité des missions",
+    "question": "L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+    "sentence": "dans un esprit d'inter-professionnalité",
+    "score": 0.3814159035682678,
+    "pts": 8.58
+  },
+  {
+    "title": "Diversité et quantité des postes à gérer",
+    "question": "La fonction n'a pas de postes directement subordonnés.",
+    "sentence": "Fonctions directement subordonnées",
+    "score": 0.6121605634689331,
+    "pts": 0.0
+  },
+  {
+    "title": "Diversité et quantité des postes à gérer",
+    "question": "La fonction n'a pas de postes directement subordonnés.",
+    "sentence": "Responsable hiérarchique direct",
+    "score": 0.5271446704864502,
+    "pts": 0.0
+  },
+  {
+    "title": "Durée",
+    "question": "Une durée minimum de 1 à 3 ans d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+    "sentence": "La fonction requiert une formation professionnelle initiale de deux ans",
+    "score": 0.7347469329833984,
+    "pts": 7.8
+  },
+  {
+    "title": "Durée",
+    "question": "Une durée minimum de 0 à 1 an d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+    "sentence": "La durée de l'expérience professionnelle est déterminée dans le cadre du processus de recrutement",
+    "score": 0.6841163635253906,
+    "pts": 0.0
+  },
+  {
+    "title": "Evolution de l'environnement",
+    "question": "La fonction s'exerce dans un environnement à évolution régulière qui nécessite une adaptation aux processus de travail et aux prestations fournies.",
+    "sentence": "Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+    "score": 0.6462754011154175,
+    "pts": 15.015
+  },
+  {
+    "title": "Formation complémentaire",
+    "question": "Aucune formation complémentaire n'est nécessaire pour l'exercice de la fonction.",
+    "sentence": "Aucune formation complémentaire n'est nécessaire pour l'exercice de la fonction",
+    "score": 0.9856511354446411,
+    "pts": 0.0
+  },
+  {
+    "title": "Formation de base",
+    "question": "La fonction requiert une formation professionnelle initiale de 2 ans (AFP) ou équivalent.",
+    "sentence": "La fonction requiert une formation professionnelle initiale de deux ans",
+    "score": 0.8405866622924805,
+    "pts": 8.645
+  },
+  {
+    "title": "Impact externe des prestations",
+    "question": "La fonction a un rôle primordial dans le choix politique des missions des Fondations membres de l'ANMEA et sur leur évolution stratégique.",
+    "sentence": "Effectuer son activité dans les valeurs de la mission de la Fondation",
+    "score": 0.4988838732242584,
+    "pts": 55.5984
+  },
+  {
+    "title": "Impact externe des prestations",
+    "question": "La fonction a un rôle primordial dans le choix politique des missions des Fondations membres de l'ANMEA et sur leur évolution stratégique.",
+    "sentence": "du fonctionnement du/des lieu/x de vie géré/s et de la Fondation dans sa globalité",
+    "score": 0.4520835280418396,
+    "pts": 55.5984
+  },
+  {
+    "title": "Impact externe des prestations",
+    "question": "La fonction a un rôle participatif dans la prestation fournie aux bénéficiares de prestations, dans le cadre de procédures standardisées. La qualité des documents/informations/prestations qu'elle fournit peut influencer l'image de l'/des institution/s et avoir des conséquences sur les bénéfiaires de prestations.",
+    "sentence": "Contribuer par des remarques motivées et propositions à l'amélioration continue de l'accompagnement socio-éducatif",
+    "score": 0.42272627353668213,
+    "pts": 11.11968
+  },
+  {
+    "title": "Impact externe des prestations",
+    "question": "La fonction fournit des prestations aux bénéficiaires de prestations ou a un rôle représentatif envers des tiers qui nécessite des initiatives dans le cadre des relations de travail engageant l'/les institution/s. Les décisions prises et/ou la qualité des prestations ont un impact important et peuvent entraîner des conséquences significatives.",
+    "sentence": "contribuer à l'accompagnement global du bénéficiaire de prestations en lui apportant un soutien constant",
+    "score": 0.39919254183769226,
+    "pts": 22.23936
+  },
+  {
+    "title": "Impact interne des prestations",
+    "question": "L'activité de la fonction a un impact important tant sur les coûts que sur le bon fonctionnement de l'/des institution/s.",
+    "sentence": "du fonctionnement du/des lieu/x de vie géré/s et de la Fondation dans sa globalité",
+    "score": 0.49046874046325684,
+    "pts": 14.3208
+  },
+  {
+    "title": "Innovation",
+    "question": "L'exercice de la fonction requiert la capacité d'adapter et parfois de créer des processus et/ou des outils, dans le but d'améliorer la qualité des prestations offertes et/ou l'organisation du travail.",
+    "sentence": "Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+    "score": 0.6361601948738098,
+    "pts": 34.749
+  },
+  {
+    "title": "Nature",
+    "question": "La fonction requiert de l'expérience professionnelle préalable.",
+    "sentence": "La fonction requiert une formation professionnelle initiale de deux ans",
+    "score": 0.7925974130630493,
+    "pts": 11.7
+  },
+  {
+    "title": "Nature",
+    "question": "La fonction requiert de l'expérience professionnelle préalable.",
+    "sentence": "Formation et expériences professionnelles requises",
+    "score": 0.7822049260139465,
+    "pts": 11.7
+  },
+  {
+    "title": "Nature des communications externes",
+    "question": "Les communications impliquent des négociations sur des sujets courants et/ou élaborés, parfois complexes. La fonction nécessite des capacités à comprendre et à gérer différentes perceptions des sujets traités.",
+    "sentence": "gérer d'une manière professionnelle des situations définies et structurées",
+    "score": 0.6067708134651184,
+    "pts": 82.875
+  },
+  {
+    "title": "Nature des communications internes",
+    "question": "Les communications impliquent des échanges d'informations et des négociations sur des sujets complexes dans le cadre de prises de décisions. La fonction nécessite des capacités à négocier, comprendre et gérer différentes perceptions des prestations offertes.",
+    "sentence": "gérer d'une manière professionnelle des situations définies et structurées",
+    "score": 0.5932139158248901,
+    "pts": 66.3
+  },
+  {
+    "title": "Nature des communications internes",
+    "question": "Les communications impliquent des échanges d'informations et des négociations sur des sujets complexes dans le cadre de prises de décisions. La fonction nécessite des capacités à négocier, comprendre et gérer différentes perceptions des prestations offertes.",
+    "sentence": "Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+    "score": 0.5037429332733154,
+    "pts": 66.3
+  },
+  {
+    "title": "Nature des communications internes",
+    "question": "Les interactions impliquent des échanges d'informations sur des sujets courants et/ou élaborés, parfois complexes, dans le but de préparer des décisions.",
+    "sentence": "les impliquer en restant à l'écoute de leurs envies et de    leurs besoins",
+    "score": 0.5004821419715881,
+    "pts": 35.36
+  },
+  {
+    "title": "Responsabilités budgétaires",
+    "question": "La fonction participe à l'élaboration et assure le suivi d'un ou plusieurs postes budgétaires.",
+    "sentence": "Participer aux tâches d'administration",
+    "score": 0.4236021339893341,
+    "pts": 33.696
+  },
+  {
+    "title": "Responsabilités budgétaires",
+    "question": "La fonction participe à l'élaboration et assure le suivi d'un ou plusieurs postes budgétaires.",
+    "sentence": "contribuer à l'accompagnement global du bénéficiaire de prestations en lui apportant un soutien constant",
+    "score": 0.33868739008903503,
+    "pts": 33.696
+  },
+  {
+    "title": "Responsabilités budgétaires",
+    "question": "La fonction approuve un ou plusieurs budgets sous réserve de l'approbation finale de l'autorité compétente.",
+    "sentence": "Peut faire toute proposition d'investissement nécessaire",
+    "score": 0.334188848733902,
+    "pts": 56.16
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction participe de manière prépondérante à l'élaboration et à la mise en oeuvre de plans à court terme. Ceci peut se traduire par une optimisation des différentes étapes retenues pour la réalisation des plans à long terme dans un souci de plus grande efficacité.",
+    "sentence": "Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+    "score": 0.4528704881668091,
+    "pts": 38.61
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction est responsable de l'élaboration et de la mise en oeuvre de plans à court terme. Ceci implique, par exemple, la gestion, l'optimisation et la mise en oeuvre des différentes procédures à instaurer pour réaliser la planification à long terme.",
+    "sentence": "suivi de la planification et gestion de l'annualisation",
+    "score": 0.43224889039993286,
+    "pts": 61.77599
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction est responsable de l'élaboration et de la mise en oeuvre de plans à court terme. Ceci implique, par exemple, la gestion, l'optimisation et la mise en oeuvre des différentes procédures à instaurer pour réaliser la planification à long terme.",
+    "sentence": "gérer d'une manière professionnelle des situations définies et structurées",
+    "score": 0.4307739734649658,
+    "pts": 61.77599
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction est responsable de l'élaboration et de la mise en oeuvre de plans à court terme. Ceci implique, par exemple, la gestion, l'optimisation et la mise en oeuvre des différentes procédures à instaurer pour réaliser la planification à long terme.",
+    "sentence": "de logistique et d'organisation du travail",
+    "score": 0.4172435998916626,
+    "pts": 61.77599
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction participe de manière prépondérante à l'élaboration et à la mise en oeuvre de plans à court terme. Ceci peut se traduire par une optimisation des différentes étapes retenues pour la réalisation des plans à long terme dans un souci de plus grande efficacité.",
+    "sentence": "Rester attentif/ve à l'évolution de l'accompagnement afin de garantir la qualité des prestations",
+    "score": 0.39133137464523315,
+    "pts": 38.61
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction participe à l'élaboration et/ou à la mise en oeuvre de plans à court terme.",
+    "sentence": "La durée de l'expérience professionnelle est déterminée dans le cadre du processus de recrutement",
+    "score": 0.38228917121887207,
+    "pts": 15.444
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction est responsable de l'élaboration et de la mise en oeuvre de plans à court terme. Ceci implique, par exemple, la gestion, l'optimisation et la mise en oeuvre des différentes procédures à instaurer pour réaliser la planification à long terme.",
+    "sentence": "des dispositions légales et réglementaires en vigueur tout en utilisant de manière optimale les ressources mises à disposition",
+    "score": 0.37414637207984924,
+    "pts": 61.77599
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction donne l'approbation finale sur les plans à court terme qui lui sont soumis.",
+    "sentence": "Peut faire toute proposition d'investissement nécessaire",
+    "score": 0.37046894431114197,
+    "pts": 77.21999
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à court terme",
+    "question": "La fonction participe à l'élaboration et/ou à la mise en oeuvre de plans à court terme.",
+    "sentence": "contribuer à l'accompagnement global du bénéficiaire de prestations en lui apportant un soutien constant",
+    "score": 0.36118465662002563,
+    "pts": 15.444
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à long terme",
+    "question": "La fonction contribue de manière active à l'élaboration et/ou au suivi de plans à long terme et/ou a un rôle de conseil dans l'évaluation des besoins futurs.",
+    "sentence": "Rester attentif/ve à l'évolution de l'accompagnement afin de garantir la qualité des prestations",
+    "score": 0.5079466700553894,
+    "pts": 11.934
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à long terme",
+    "question": "La fonction préavise des plans à long terme. Elle anticipe les transformations futures en tenant compte des exigences économiques, politiques, démographiques, sociales et culturelles.",
+    "sentence": "Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+    "score": 0.5001357793807983,
+    "pts": 31.824
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à long terme",
+    "question": "La fonction contribue de manière active à l'élaboration et/ou au suivi de plans à long terme et/ou a un rôle de conseil dans l'évaluation des besoins futurs.",
+    "sentence": "Contribuer par des remarques motivées et propositions à l'amélioration continue de l'accompagnement socio-éducatif",
+    "score": 0.4512222409248352,
+    "pts": 11.934
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à long terme",
+    "question": "La fonction approuve les plans à long terme qui lui sont soumis, sous réserve de l'approbation finale des Autorités compétentes. Elle doit posséder une dimension prospective lui permettant d'intégrer ces plans dans un contexte global.",
+    "sentence": "Peut faire toute proposition d'investissement nécessaire",
+    "score": 0.4507707357406616,
+    "pts": 39.78
+  },
+  {
+    "title": "Responsabilités de planification et de réalisation des activités à long terme",
+    "question": "La fonction contribue de manière active à l'élaboration et/ou au suivi de plans à long terme et/ou a un rôle de conseil dans l'évaluation des besoins futurs.",
+    "sentence": "contribuer à l'accompagnement global du bénéficiaire de prestations en lui apportant un soutien constant",
+    "score": 0.4294849634170532,
+    "pts": 11.934
+  },
+  {
+    "title": "Rôle dans la gestion des ressources humaines",
+    "question": "Elle a un rôle d'animation incluant le transfert de connaissances et/ou de formation des collaborateurs/trices; elle coordonne l'exécution de leurs activités.",
+    "sentence": "Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+    "score": 0.5696470141410828,
+    "pts": 11.232
+  },
+  {
+    "title": "Rôle dans la gestion des ressources humaines",
+    "question": "Elle a un rôle d'animation incluant le transfert de connaissances et/ou de formation des collaborateurs/trices; elle coordonne l'exécution de leurs activités.",
+    "sentence": "Rester attentif/ve à l'évolution de l'accompagnement afin de garantir la qualité des prestations",
+    "score": 0.5380744934082031,
+    "pts": 11.232
+  },
+  {
+    "title": "Rôle dans la gestion des ressources humaines",
+    "question": "Elle a un rôle d'animation incluant le transfert de connaissances et/ou de formation des collaborateurs/trices; elle coordonne l'exécution de leurs activités.",
+    "sentence": "Contribuer par des remarques motivées et propositions à l'amélioration continue de l'accompagnement socio-éducatif",
+    "score": 0.5348393321037292,
+    "pts": 11.232
+  },
+  {
+    "title": "Rôle dans la gestion des ressources humaines",
+    "question": "Elle a un rôle d'animation incluant le transfert de connaissances et/ou de formation des collaborateurs/trices; elle coordonne l'exécution de leurs activités.",
+    "sentence": "6 Encourager les bénéficiaires de prestations à participer à des animations",
+    "score": 0.4926157593727112,
+    "pts": 11.232
+  },
+  {
+    "title": "Rôle dans la gestion des ressources humaines",
+    "question": "Elle a un rôle d'animation incluant le transfert de connaissances et/ou de formation des collaborateurs/trices; elle coordonne l'exécution de leurs activités.",
+    "sentence": "dans un esprit d'inter-professionnalité",
+    "score": 0.48873937129974365,
+    "pts": 11.232
+  },
+  {
+    "title": "Rôle dans la gestion des ressources humaines",
+    "question": "Elle a un rôle de conduite de collaborateurs/trices. Elle est responsable de l'exécution des activités, de la formation, et est impliquée dans le processus de recrutement. Elle peut également l'être dans l'évaluation des fonctions et l'appréciation des collaborateurs/trices.",
+    "sentence": "Agir dans le respect de la charte du personnel afin de contribuer à un climat de travail positif",
+    "score": 0.48036766052246094,
+    "pts": 24.336
+  }
+]

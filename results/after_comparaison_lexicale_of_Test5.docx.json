@@ -1,0 +1,162 @@
+[
+    {
+        "title":"Formation complémentaire",
+        "question":"Aucune formation complémentaire n'est nécessaire pour l'exercice de la fonction.",
+        "sentence":"Aucune formation complémentaire n'est nécessaire pour l'exercice de la fonction",
+        "score":0.9856511354,
+        "pts":0.0,
+        "similarity":2.0
+    },
+    {
+        "title":"Formation de base",
+        "question":"La fonction requiert une formation professionnelle initiale de 2 ans (AFP) ou équivalent.",
+        "sentence":"La fonction requiert une formation professionnelle initiale de deux ans (AFP-ASA) ou équivalent",
+        "score":0.9167892337,
+        "pts":8.645,
+        "similarity":1.867363685
+    },
+    {
+        "title":"Nature",
+        "question":"La fonction requiert de l'expérience professionnelle préalable.",
+        "sentence":"La durée de l'expérience professionnelle est déterminée dans le cadre du processus de recrutement (de débutant accepté",
+        "score":0.6615861058,
+        "pts":11.7,
+        "similarity":1.4987890763
+    },
+    {
+        "title":"Autonomie de décision",
+        "question":"La fonction applique des consignes et des directives établies.",
+        "sentence":"des protocoles et des directives établies",
+        "score":0.6635223627,
+        "pts":23.4,
+        "similarity":1.4480250036
+    },
+    {
+        "title":"Durée",
+        "question":"Une durée minimum de 1 à 3 ans d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+        "sentence":"La fonction requiert une formation professionnelle initiale de deux ans (AFP-ASA) ou équivalent",
+        "score":0.6853113174,
+        "pts":7.8,
+        "similarity":1.3588392046
+    },
+    {
+        "title":"Rôle dans la gestion des ressources humaines",
+        "question":"Elle a un rôle d'animation incluant le transfert de connaissances et\/ou de formation des collaborateurs\/trices; elle coordonne l'exécution de leurs activités.",
+        "sentence":"6 Encourager les bénéficiaires de prestations à participer à des animations",
+        "score":0.4926157594,
+        "pts":11.232,
+        "similarity":1.3151376296
+    },
+    {
+        "title":"Diversité des missions",
+        "question":"L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+        "sentence":"2 Accomplir des tâches administratives simples en utilisant les outils informatiques",
+        "score":0.3587596416,
+        "pts":8.58,
+        "similarity":1.163359593
+    },
+    {
+        "title":"Innovation",
+        "question":"L'exercice de la fonction s'effectue dans le cadre de pratiques et de procédures généralement établies, mais la fonction peut proposer des solutions afin d'améliorer la qualité des prestations offertes.",
+        "sentence":"ve à l'évolution de l'accompagnement afin de garantir la qualité des prestations",
+        "score":0.536729455,
+        "pts":23.166,
+        "similarity":0.6315104661
+    },
+    {
+        "title":"Impact interne des prestations",
+        "question":"L'activité de la fonction a un impact déterminant tant sur les coûts que sur le bon fonctionnement de la Fondation et les situations générées deviennent fréquemment irréversibles du fait du coût de leur correction.",
+        "sentence":"Effectuer son activité dans les valeurs de la mission de la Fondation",
+        "score":0.2661811113,
+        "pts":28.6416,
+        "similarity":0.5954922547
+    },
+    {
+        "title":"Impact externe des prestations",
+        "question":"La fonction a un rôle primordial dans le choix politique des missions des Fondations membres de l'ANMEA et sur leur évolution stratégique.",
+        "sentence":"Effectuer son activité dans les valeurs de la mission de la Fondation",
+        "score":0.4988838732,
+        "pts":55.5984,
+        "similarity":0.5746778677
+    },
+    {
+        "title":"Responsabilités de planification et de réalisation des activités à court terme",
+        "question":"La fonction est responsable de l'élaboration et de la mise en oeuvre de plans à court terme. Ceci implique, par exemple, la gestion, l'optimisation et la mise en oeuvre des différentes procédures à instaurer pour réaliser la planification à long terme.",
+        "sentence":"Être garant du respect de son horaire de travail (suivi de la planification et gestion de l'annualisation",
+        "score":0.4401509762,
+        "pts":61.77599,
+        "similarity":0.4901280006
+    },
+    {
+        "title":"Diversité et quantité des postes à gérer",
+        "question":"La fonction n'a pas de postes directement subordonnés.",
+        "sentence":"Fonctions directement subordonnées",
+        "score":0.6121605635,
+        "pts":0.0,
+        "similarity":0.4494364165
+    },
+    {
+        "title":"Responsabilités de planification et de réalisation des activités à long terme",
+        "question":"La fonction contribue de manière active à l'élaboration et\/ou au suivi de plans à long terme et\/ou a un rôle de conseil dans l'évaluation des besoins futurs.",
+        "sentence":"ve à l'évolution de l'accompagnement afin de garantir la qualité des prestations",
+        "score":0.4842925072,
+        "pts":11.934,
+        "similarity":0.4259809147
+    },
+    {
+        "title":"Nature des communications internes",
+        "question":"Les communications impliquent des échanges d'informations et des négociations sur des sujets complexes dans le cadre de prises de décisions. La fonction nécessite des capacités à négocier, comprendre et gérer différentes perceptions des prestations offertes.",
+        "sentence":"gérer d'une manière professionnelle des situations définies et structurées",
+        "score":0.5932139158,
+        "pts":66.3,
+        "similarity":0.3929057806
+    },
+    {
+        "title":"Responsabilités budgétaires",
+        "question":"La fonction participe à l'élaboration et assure le suivi d'un ou plusieurs postes budgétaires.",
+        "sentence":"ve à l'évolution de l'accompagnement afin de garantir la qualité des prestations",
+        "score":0.3019310832,
+        "pts":33.696,
+        "similarity":0.3776203164
+    },
+    {
+        "title":"Complexité de l'environnement",
+        "question":"La fonction fait fréquemment face à un degré important de difficultés, souvent nouvelles, et les situations générées requièrent adaptabilité, flexibilité et initiative.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "score":0.5025104284,
+        "pts":50.05,
+        "similarity":0.3049102071
+    },
+    {
+        "title":"Analyse et synthèse",
+        "question":"La fonction requiert la faculté d'analyser des sujets  complexes qui nécessitent une capacité d'interprétation et de synthèse.",
+        "sentence":"Assurer la circulation de l'information en veillant à la qualité",
+        "score":0.3183142543,
+        "pts":42.757,
+        "similarity":0.2882728083
+    },
+    {
+        "title":"Evolution de l'environnement",
+        "question":"La fonction s'exerce dans un environnement à évolution rapide qui nécessite de s'adapter rapidement aux processus de travail et aux prestations fournies en suivant un certain nombre de règles prédéfinies.",
+        "sentence":"gérer d'une manière professionnelle des situations définies et structurées",
+        "score":0.4805865884,
+        "pts":27.5275,
+        "similarity":0.2675541658
+    },
+    {
+        "title":"Connaissances linguistiques",
+        "question":"La fonction requiert des connaissances approfondies (lecture, conversation et rédaction) en français, la lecture et la conversation dans une ou deux langues supplémentaires.",
+        "sentence":"La fonction requiert une formation professionnelle initiale de deux ans (AFP-ASA) ou équivalent",
+        "score":0.3263558149,
+        "pts":6.63,
+        "similarity":0.2564118189
+    },
+    {
+        "title":"Nature des communications externes",
+        "question":"Les communications impliquent des négociations sur des sujets courants et\/ou élaborés, parfois complexes. La fonction nécessite des capacités à comprendre et à gérer différentes perceptions des sujets traités.",
+        "sentence":"gérer d'une manière professionnelle des situations définies et structurées",
+        "score":0.6067708135,
+        "pts":82.875,
+        "similarity":0.2465055434
+    }
+]

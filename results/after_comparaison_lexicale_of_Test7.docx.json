@@ -1,0 +1,162 @@
+[
+    {
+        "title":"Formation complémentaire",
+        "question":"Aucune formation complémentaire n'est nécessaire pour l'exercice de la fonction.",
+        "sentence":"Aucune formation complémentaire n'est nécessaire pour l'exercice de la fonction",
+        "score":0.9856511354,
+        "pts":0.0,
+        "similarity":2.0
+    },
+    {
+        "title":"Autonomie de décision",
+        "question":"La fonction applique des consignes et des directives établies.",
+        "sentence":"Respecter les consignes et les directives de l'équipe socio-éducative en relation avec la santé et la sécurité des bénéficiaires de prestations",
+        "score":0.4864670634,
+        "pts":23.4,
+        "similarity":1.425226795
+    },
+    {
+        "title":"Nature",
+        "question":"La fonction requiert de l'expérience professionnelle préalable.",
+        "sentence":"Formation et expériences professionnelles requises",
+        "score":0.782204926,
+        "pts":11.7,
+        "similarity":1.1683684216
+    },
+    {
+        "title":"Rôle dans la gestion des ressources humaines",
+        "question":"Elle a un rôle de direction, d'organisation et de suivi dans le domaine des ressources humaines. Elle est responsable du recrutement, de l'évaluation des fonctions, de la définition des objectifs, de la rémunération ainsi que de l'appréciation des collaborateurs\/trices.",
+        "sentence":"(selon critères d'évaluation des fonctions des établissements de l'anmea)",
+        "score":0.4368939996,
+        "pts":37.44,
+        "similarity":0.7079919252
+    },
+    {
+        "title":"Innovation",
+        "question":"L'exercice de la fonction s'effectue dans le cadre de pratiques et de procédures généralement établies, mais la fonction peut proposer des solutions afin d'améliorer la qualité des prestations offertes.",
+        "sentence":"Respecter les consignes et les directives de l'équipe socio-éducative en relation avec la santé et la sécurité des bénéficiaires de prestations",
+        "score":0.3570636213,
+        "pts":23.166,
+        "similarity":0.5557971175
+    },
+    {
+        "title":"Impact externe des prestations",
+        "question":"La fonction a un rôle très important dans le cadre des prestations fournies par l'\/les institution\/s. L'influence de la qualité du service proposé est majeure pour la crédibilité de la Fondation auprès des tiers, des organisations professionnelles et autres autorités et peut entraîner des conséquences très importantes.",
+        "sentence":"Respecter les consignes et les directives de l'équipe socio-éducative en relation avec la santé et la sécurité des bénéficiaires de prestations",
+        "score":0.3064599335,
+        "pts":44.47872,
+        "similarity":0.5392801355
+    },
+    {
+        "title":"Impact interne des prestations",
+        "question":"L'activité de la fonction a un impact déterminant tant sur les coûts que sur le bon fonctionnement de la Fondation et les situations générées deviennent fréquemment irréversibles du fait du coût de leur correction.",
+        "sentence":"Discrétion absolue sur toutes les données liées à l'exercice de la fonction",
+        "score":0.229448393,
+        "pts":28.6416,
+        "similarity":0.5043183859
+    },
+    {
+        "title":"Durée",
+        "question":"Une durée minimum de 1 à 3 ans d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+        "sentence":"Aucune formation complémentaire n'est nécessaire pour l'exercice de la fonction",
+        "score":0.5938020945,
+        "pts":7.8,
+        "similarity":0.4713485652
+    },
+    {
+        "title":"Responsabilités de planification et de réalisation des activités à court terme",
+        "question":"La fonction est responsable de l'élaboration et de la mise en oeuvre de plans à court terme. Ceci implique, par exemple, la gestion, l'optimisation et la mise en oeuvre des différentes procédures à instaurer pour réaliser la planification à long terme.",
+        "sentence":"Assurer l'accompagnement selon les consignes et documentation du Système de gestion en lien avec l'accompagnement nocturne",
+        "score":0.3537843227,
+        "pts":61.77599,
+        "similarity":0.4674250839
+    },
+    {
+        "title":"Responsabilités de planification et de réalisation des activités à long terme",
+        "question":"La fonction contribue de manière active à l'élaboration et\/ou au suivi de plans à long terme et\/ou a un rôle de conseil dans l'évaluation des besoins futurs.",
+        "sentence":"Respecter les consignes et les directives de l'équipe socio-éducative en relation avec la santé et la sécurité des bénéficiaires de prestations",
+        "score":0.2866869569,
+        "pts":11.934,
+        "similarity":0.4563745259
+    },
+    {
+        "title":"Diversité et quantité des postes à gérer",
+        "question":"La fonction n'a pas de postes directement subordonnés.",
+        "sentence":"Fonctions directement subordonnées",
+        "score":0.6121605635,
+        "pts":0.0,
+        "similarity":0.4494364165
+    },
+    {
+        "title":"Responsabilités budgétaires",
+        "question":"La fonction participe de manière déterminante à l'élaboration et assure le suivi financier d'un ou de plusieurs budgets.",
+        "sentence":"du système de gestion et de la Fondation dans sa globalité",
+        "score":0.4091728032,
+        "pts":44.928,
+        "similarity":0.4161473215
+    },
+    {
+        "title":"Formation de base",
+        "question":"La fonction requiert au minimum le niveau scolaire obligatoire.",
+        "sentence":"Niveau scolaire obligatoire",
+        "score":0.6665011048,
+        "pts":6.37,
+        "similarity":0.3994395018
+    },
+    {
+        "title":"Nature des communications internes",
+        "question":"Les communications impliquent des échanges d'informations et des négociations sur des sujets complexes dans le cadre de prises de décisions. La fonction nécessite des capacités à négocier, comprendre et gérer différentes perceptions des prestations offertes.",
+        "sentence":"Contribuer par des propositions motivées et des réalisations à l'amélioration continue de son travail",
+        "score":0.3785325289,
+        "pts":66.3,
+        "similarity":0.3802048422
+    },
+    {
+        "title":"Diversité des missions",
+        "question":"L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+        "sentence":"tout autre tâche relevant de son champ de compétences peut être requise à la demande du responsable hiérarchique direct",
+        "score":0.4821670055,
+        "pts":8.58,
+        "similarity":0.3365911513
+    },
+    {
+        "title":"Analyse et synthèse",
+        "question":"La fonction requiert la faculté d'analyser des sujets de nature différente et très complexes qui nécessitent une grande capacité d'interprétation et de synthèse.",
+        "sentence":"Expérience de vie permettant de réagir de façon appropriée aux situations diverses qui peuvent survenir la nuit",
+        "score":0.2776240706,
+        "pts":65.78,
+        "similarity":0.3265811444
+    },
+    {
+        "title":"Nature des communications externes",
+        "question":"Les communications impliquent des échanges d'informations sur des sujets élaborés et complexes dans un but d'explication.",
+        "sentence":"Contribuer par des propositions motivées et des réalisations à l'amélioration continue de son travail",
+        "score":0.331551373,
+        "pts":60.775,
+        "similarity":0.2983368989
+    },
+    {
+        "title":"Evolution de l'environnement",
+        "question":"La fonction s'exerce dans un environnement à évolution régulière qui nécessite une adaptation aux processus de travail et aux prestations fournies.",
+        "sentence":"Contribuer par des propositions motivées et des réalisations à l'amélioration continue de son travail",
+        "score":0.4164750576,
+        "pts":15.015,
+        "similarity":0.2472314249
+    },
+    {
+        "title":"Complexité de l'environnement",
+        "question":"La fonction fait fréquemment face à un degré important de difficultés, souvent nouvelles, et les situations générées requièrent adaptabilité, flexibilité et initiative.",
+        "sentence":"Contribuer par des propositions motivées et des réalisations à l'amélioration continue de son travail",
+        "score":0.3948314786,
+        "pts":50.05,
+        "similarity":0.2233845162
+    },
+    {
+        "title":"Connaissances linguistiques",
+        "question":"La fonction requiert des connaissances linguistiques de base (lecture, conversation, rédaction simple) en français.",
+        "sentence":"(formation de base",
+        "score":0.2582639456,
+        "pts":2.21,
+        "similarity":0.1978531849
+    }
+]

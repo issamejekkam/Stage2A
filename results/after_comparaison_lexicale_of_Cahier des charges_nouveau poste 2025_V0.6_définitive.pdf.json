@@ -1,0 +1,162 @@
+[
+    {
+        "title":"Durée",
+        "question":"Une durée minimum de 1 à 3 ans d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+        "sentence":"Minimum 3 à 5 ans de pratique professionnelle soit dans le domaine de la formation continue et de la",
+        "score":0.7460090518,
+        "pts":7.8,
+        "similarity":1.6079579899
+    },
+    {
+        "title":"Nature",
+        "question":"La fonction requiert de l'expérience professionnelle préalable.",
+        "sentence":"Minimum 3 à 5 ans de pratique professionnelle soit dans le domaine de la formation continue et de la",
+        "score":0.6670604944,
+        "pts":11.7,
+        "similarity":1.4422601936
+    },
+    {
+        "title":"Formation de base",
+        "question":"La fonction requiert un Bachelor (Université ou HES) ou équivalent.",
+        "sentence":"Formation supérieure de niveau Bachelor ou Master (université ou HES) en économie d’entreprise avec",
+        "score":0.6504701376,
+        "pts":20.93,
+        "similarity":1.3423117021
+    },
+    {
+        "title":"Rôle dans la gestion des ressources humaines",
+        "question":"Elle est peu ou pas concernée par la gestion des ressources humaines.",
+        "sentence":"Service des ressources humaines (SRH)",
+        "score":0.5416630507,
+        "pts":0.0,
+        "similarity":1.2496354941
+    },
+    {
+        "title":"Complexité de l'environnement",
+        "question":"La fonction fait fréquemment face à un degré important de difficultés, souvent nouvelles, et les situations générées requièrent adaptabilité, flexibilité et initiative.",
+        "sentence":"Sens des responsabilités et autonomie dans la gestion de projets RH complexes et d’envergure",
+        "score":0.4375504553,
+        "pts":50.05,
+        "similarity":0.7426104832
+    },
+    {
+        "title":"Responsabilités budgétaires",
+        "question":"La fonction participe à l'élaboration et assure le suivi d'un ou plusieurs postes budgétaires.",
+        "sentence":"Suivre l’évolution du budget de formation en collaboration avec le secrétariat du",
+        "score":0.5223428607,
+        "pts":33.696,
+        "similarity":0.7096974789
+    },
+    {
+        "title":"Connaissances linguistiques",
+        "question":"La fonction requiert des connaissances linguistiques approfondies (lecture, conversation et rédaction) en français.",
+        "sentence":"Parfaite maîtrise de la langue française et capacité rédactionnelle de haut niveau",
+        "score":0.7594987154,
+        "pts":4.42,
+        "similarity":0.6264732309
+    },
+    {
+        "title":"Formation complémentaire",
+        "question":"Une formation complémentaire est nécessaire pour l'exercice de la fonction.",
+        "sentence":"idéalement complétée par une certification",
+        "score":0.498503238,
+        "pts":9.75,
+        "similarity":0.5674355749
+    },
+    {
+        "title":"Responsabilités de planification et de réalisation des activités à long terme",
+        "question":"La fonction est responsable de l'élaboration et de la mise en oeuvre et\/ou du suivi de plans à long terme. Elle peut prendre part aux différentes recherches et études mises en oeuvre en vue de réalisations futures à longue échéance.",
+        "sentence":"participer à la définition et à la mise en œuvre de la politique de",
+        "score":0.5262870789,
+        "pts":23.868,
+        "similarity":0.5110100599
+    },
+    {
+        "title":"Autonomie de décision",
+        "question":"La fonction approuve, pour l'\/les institution\/s les processus de décision et d'organisation, ainsi que les systèmes de contrôle, et s'assure de leur respect. Elle peut prendre des initiatives pour l'amélioration des prestations dans les limites qu'elle aura définies et soumises pour approbation à l'organe compétent (budget, crédits, délais, etc.).",
+        "sentence":"participer à la définition et à la mise en œuvre de la politique de",
+        "score":0.4294790626,
+        "pts":93.6,
+        "similarity":0.5014718419
+    },
+    {
+        "title":"Impact externe des prestations",
+        "question":"La fonction a un rôle primordial dans le choix politique des missions des Fondations membres de l'ANMEA et sur leur évolution stratégique.",
+        "sentence":"participer à la définition et à la mise en œuvre de la politique de",
+        "score":0.4487209916,
+        "pts":55.5984,
+        "similarity":0.4838166583
+    },
+    {
+        "title":"Innovation",
+        "question":"L'exercice de la fonction requiert des compétences innovatrices, faisant généralement appel à des concepts nouveaux, et qui conduisent à la création de prestations, à l'organisation des ressources et des processus.",
+        "sentence":"Sens aigu des priorités et de la gestion des ressources à disposition",
+        "score":0.4601112008,
+        "pts":77.21999,
+        "similarity":0.4644227756
+    },
+    {
+        "title":"Responsabilités de planification et de réalisation des activités à court terme",
+        "question":"La fonction est responsable de l'élaboration et de la mise en oeuvre de plans à court terme. Ceci implique, par exemple, la gestion, l'optimisation et la mise en oeuvre des différentes procédures à instaurer pour réaliser la planification à long terme.",
+        "sentence":"monitoring et la priorisation de tous les projets menés par le service RH aussi bien",
+        "score":0.5441874266,
+        "pts":61.77599,
+        "similarity":0.4381214924
+    },
+    {
+        "title":"Nature des communications internes",
+        "question":"Les communications impliquent des échanges d'informations et des négociations sur des sujets complexes dans le cadre de prises de décisions. La fonction nécessite des capacités à négocier, comprendre et gérer différentes perceptions des prestations offertes.",
+        "sentence":"Sens aigu des priorités et de la gestion des ressources à disposition",
+        "score":0.4363667667,
+        "pts":66.3,
+        "similarity":0.4199860514
+    },
+    {
+        "title":"Impact interne des prestations",
+        "question":"L'activité de la fonction a un impact modéré tant sur les coûts que sur le bon fonctionnement de l'\/des institution\/s.",
+        "sentence":"Soutenir activement le-la chef-fe du service des ressources humaines ainsi que",
+        "score":0.2557235062,
+        "pts":10.02456,
+        "similarity":0.4038198753
+    },
+    {
+        "title":"Analyse et synthèse",
+        "question":"La fonction requiert la faculté d'analyser des sujets  complexes qui nécessitent une capacité d'interprétation et de synthèse.",
+        "sentence":"Excellentes capacités de vulgarisation et de transmission de l’information",
+        "score":0.4008750021,
+        "pts":42.757,
+        "similarity":0.3708162742
+    },
+    {
+        "title":"Diversité des missions",
+        "question":"L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+        "sentence":"Assurer la fonction de « project office » pour l’ensemble du service RH",
+        "score":0.4024514854,
+        "pts":8.58,
+        "similarity":0.327103754
+    },
+    {
+        "title":"Evolution de l'environnement",
+        "question":"La fonction s'exerce dans un environnement à évolution rapide qui nécessite de s'adapter rapidement aux processus de travail et aux prestations fournies en suivant un certain nombre de règles prédéfinies.",
+        "sentence":"personnel et des cadres en fonction des spécificités des différents interlocuteurs",
+        "score":0.4102585316,
+        "pts":27.5275,
+        "similarity":0.3174104416
+    },
+    {
+        "title":"Diversité et quantité des postes à gérer",
+        "question":"La fonction gère directement un grand nombre de postes (à partir de 8 à 10) qui ont des activités diverses.",
+        "sentence":"l’adjoint-e du-de la chef-fe de service et les partenaires RH dans divers projets",
+        "score":0.4680860043,
+        "pts":56.16,
+        "similarity":0.267467794
+    },
+    {
+        "title":"Nature des communications externes",
+        "question":"Les communications impliquent des négociations sur des concepts élaborés et complexes. La fonction nécessite la capacité de gérer des intérêts parfois divergents.",
+        "sentence":"Aptitude à la négociation",
+        "score":0.4361507893,
+        "pts":110.5,
+        "similarity":0.2647812187
+    }
+]

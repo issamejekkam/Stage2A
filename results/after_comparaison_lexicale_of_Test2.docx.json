@@ -1,0 +1,202 @@
+[
+    {
+        "Question":"Rôle dans la gestion des ressources humaines",
+        "codeQuestion":"B-3.2",
+        "niv de réponse":"Elle a un rôle de direction, d'organisation et de suivi dans le domaine des ressources humaines. Elle est responsable du recrutement, de l'évaluation des fonctions, de la définition des objectifs, de la rémunération ainsi que de l'appréciation des collaborateurs\/trices.",
+        "sentence":"(selon critères d'évaluation des fonctions des établissements de l'anmea)",
+        "codeReponse":"B-3.2.4",
+        "score":0.4368938804,
+        "pts":37.44,
+        "similarity":1.7079919252
+    },
+    {
+        "Question":"Autonomie de décision",
+        "codeQuestion":"B-2.1",
+        "niv de réponse":"La fonction applique des consignes et des directives établies.",
+        "sentence":"Respecter les consignes et les directives spécifiques de l'équipe socio-éducative en relation avec la santé",
+        "codeReponse":"B-2.1.1",
+        "score":0.481541276,
+        "pts":23.4,
+        "similarity":1.3623709263
+    },
+    {
+        "Question":"Nature des communications internes",
+        "codeQuestion":"C-1.1",
+        "niv de réponse":"Les interactions impliquent des échanges d'informations sur des sujets courants et\/ou élaborés, parfois complexes, dans le but de préparer des décisions.",
+        "sentence":"et transmettre oralement les informations pertinentes aux éducateurs",
+        "codeReponse":"C-1.1.2",
+        "score":0.3670842052,
+        "pts":35.36,
+        "similarity":1.1572782165
+    },
+    {
+        "Question":"Analyse et synthèse",
+        "codeQuestion":"D-3.1",
+        "niv de réponse":"La fonction requiert la faculté d'analyser des sujets  complexes qui nécessitent une capacité d'interprétation et de synthèse.",
+        "sentence":"Capacité à analyser et à intervenir à bon escient",
+        "codeReponse":"D-3.1.3",
+        "score":0.4920827746,
+        "pts":42.757,
+        "similarity":1.1361942026
+    },
+    {
+        "Question":"Innovation",
+        "codeQuestion":"D-4.1",
+        "niv de réponse":"L'exercice de la fonction requiert des compétences innovatrices, faisant généralement appel à des concepts nouveaux, et qui conduisent à la création de prestations, à l'organisation des ressources et des processus.",
+        "sentence":"Contribuer par des propositions motivées et des réalisations à l'amélioration continue de son travail",
+        "codeReponse":"D-4.1.4",
+        "score":0.5465230942,
+        "pts":77.21999,
+        "similarity":0.8747185124
+    },
+    {
+        "Question":"Responsabilités de planification et de réalisation des activités à court terme",
+        "codeQuestion":"B-1.1",
+        "niv de réponse":"La fonction participe de manière prépondérante à l'élaboration et à la mise en oeuvre de plans à court terme. Ceci peut se traduire par une optimisation des différentes étapes retenues pour la réalisation des plans à long terme dans un souci de plus grande efficacité.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "codeReponse":"B-1.1.3",
+        "score":0.4528704286,
+        "pts":38.61,
+        "similarity":0.8451701869
+    },
+    {
+        "Question":"Nature",
+        "codeQuestion":"A-2.1",
+        "niv de réponse":"La fonction requiert peu ou pas d'expérience professionnelle préalable.",
+        "sentence":"Une première expérience dans le domaine du handicap ou de la santé est un atout",
+        "codeReponse":"A-2.1.1",
+        "score":0.4932231307,
+        "pts":0.0,
+        "similarity":0.7675367769
+    },
+    {
+        "Question":"Formation complémentaire",
+        "codeQuestion":"A-1.2",
+        "niv de réponse":"Deux formations complémentaires, ou plus, sont nécessaires pour l'exercice de la fonction.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "codeReponse":"A-1.2.3",
+        "score":0.5159761906,
+        "pts":19.5,
+        "similarity":0.7620314259
+    },
+    {
+        "Question":"Nature des communications externes",
+        "codeQuestion":"C-2.1",
+        "niv de réponse":"Les communications portent essentiellement sur des sujets courants et ont pour but d'informer.",
+        "sentence":"Procéder à la prise d'informations auprès du membre de l'équipe socio-éducative",
+        "codeReponse":"C-2.1.1",
+        "score":0.2901893854,
+        "pts":27.625,
+        "similarity":0.6837610598
+    },
+    {
+        "Question":"Impact externe des prestations",
+        "codeQuestion":"B-5.1",
+        "niv de réponse":"La fonction a un rôle participatif dans la prestation fournie aux bénéficiares de prestations, dans le cadre de procédures standardisées. La qualité des documents\/informations\/prestations qu'elle fournit peut influencer l'image de l'\/des institution\/s et avoir des conséquences sur les bénéfiaires de prestations.",
+        "sentence":"dans le respect des référentiels institutionnelles et la logique d'accompagnement du bénéficiaire de prestations sur 24 heures",
+        "codeReponse":"B-5.1.1",
+        "score":0.4024853706,
+        "pts":11.11968,
+        "similarity":0.574167382
+    },
+    {
+        "Question":"Impact interne des prestations",
+        "codeQuestion":"B-5.2",
+        "niv de réponse":"L'activité de la fonction a un impact déterminant tant sur les coûts que sur le bon fonctionnement de la Fondation et les situations générées deviennent fréquemment irréversibles du fait du coût de leur correction.",
+        "sentence":"du système de gestion et de la Fondation dans sa globalité",
+        "codeReponse":"B-5.2.4",
+        "score":0.3560692668,
+        "pts":28.6416,
+        "similarity":0.4930032017
+    },
+    {
+        "Question":"Durée",
+        "codeQuestion":"A-2.2",
+        "niv de réponse":"Une durée minimum de 4 à 7 ans d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+        "sentence":"Une première expérience dans le domaine du handicap ou de la santé est un atout",
+        "codeReponse":"A-2.2.3",
+        "score":0.4036428332,
+        "pts":14.3,
+        "similarity":0.4859427975
+    },
+    {
+        "Question":"Diversité et quantité des postes à gérer",
+        "codeQuestion":"B-3.1",
+        "niv de réponse":"La fonction n'a pas de postes directement subordonnés.",
+        "sentence":"Fonctions directement subordonnées",
+        "codeReponse":"B-3.1.1",
+        "score":0.6121603251,
+        "pts":0.0,
+        "similarity":0.4494364165
+    },
+    {
+        "Question":"Responsabilités de planification et de réalisation des activités à long terme",
+        "codeQuestion":"B-1.2",
+        "niv de réponse":"La fonction contribue de manière active à l'élaboration et\/ou au suivi de plans à long terme et\/ou a un rôle de conseil dans l'évaluation des besoins futurs.",
+        "sentence":"Au regard des besoins du foyer et des bénéficiaires de prestations",
+        "codeReponse":"B-1.2.2",
+        "score":0.3581658602,
+        "pts":11.934,
+        "similarity":0.4330605473
+    },
+    {
+        "Question":"Responsabilités budgétaires",
+        "codeQuestion":"B-4.1",
+        "niv de réponse":"La fonction participe de manière déterminante à l'élaboration et assure le suivi financier d'un ou de plusieurs budgets.",
+        "sentence":"du système de gestion et de la Fondation dans sa globalité",
+        "codeReponse":"B-4.1.5",
+        "score":0.409172833,
+        "pts":44.928,
+        "similarity":0.4161473215
+    },
+    {
+        "Question":"Diversité des missions",
+        "codeQuestion":"D-2.1",
+        "niv de réponse":"L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+        "sentence":"tout autre tâche relevant de son champ de compétences peut être requise à la demande du responsable hiérarchique direct",
+        "codeReponse":"D-2.1.1",
+        "score":0.4821671844,
+        "pts":8.58,
+        "similarity":0.3365911513
+    },
+    {
+        "Question":"Evolution de l'environnement",
+        "codeQuestion":"D-1.2",
+        "niv de réponse":"La fonction s'exerce dans un environnement à évolution rapide qui nécessite de s'adapter rapidement aux processus de travail et aux prestations fournies en suivant un certain nombre de règles prédéfinies.",
+        "sentence":"dans le respect des référentiels institutionnelles et la logique d'accompagnement du bénéficiaire de prestations sur 24 heures",
+        "codeReponse":"D-1.2.2",
+        "score":0.4050769806,
+        "pts":27.5275,
+        "similarity":0.3318429529
+    },
+    {
+        "Question":"Complexité de l'environnement",
+        "codeQuestion":"D-1.1",
+        "niv de réponse":"La fonction fait fréquemment face à un degré important de difficultés, souvent nouvelles, et les situations générées requièrent adaptabilité, flexibilité et initiative.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "codeReponse":"D-1.1.3",
+        "score":0.5025104284,
+        "pts":50.05,
+        "similarity":0.3049102071
+    },
+    {
+        "Question":"Formation de base",
+        "codeQuestion":"A-1.1",
+        "niv de réponse":"La fonction requiert une formation professionnelle initiale de 2 ans (AFP) ou équivalent.",
+        "sentence":"Une première expérience dans le domaine du handicap ou de la santé est un atout",
+        "codeReponse":"A-1.1.2",
+        "score":0.3975502253,
+        "pts":8.645,
+        "similarity":0.2931028386
+    },
+    {
+        "Question":"Connaissances linguistiques",
+        "codeQuestion":"C-3.1",
+        "niv de réponse":"La fonction requiert des connaissances approfondies (lecture, conversation et rédaction) dans au moins deux langues, dont le français.",
+        "sentence":"Une première expérience dans le domaine du handicap ou de la santé est un atout",
+        "codeReponse":"C-3.1.4",
+        "score":0.1943850219,
+        "pts":11.05,
+        "similarity":0.2109964527
+    }
+]

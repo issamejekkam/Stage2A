@@ -1,0 +1,202 @@
+[
+    {
+        "Question":"Rôle dans la gestion des ressources humaines",
+        "codeQuestion":"B-3.2",
+        "niv de réponse":"Elle a un rôle de direction, d'organisation et de suivi dans le domaine des ressources humaines. Elle est responsable du recrutement, de l'évaluation des fonctions, de la définition des objectifs, de la rémunération ainsi que de l'appréciation des collaborateurs\/trices.",
+        "sentence":"Assurer la gestion globale et l'amélioration continue du système de management de la qualité de la Fondation",
+        "codeReponse":"B-3.2.4",
+        "score":0.4978392422,
+        "pts":37.44,
+        "similarity":0.645092184
+    },
+    {
+        "Question":"Impact interne des prestations",
+        "codeQuestion":"B-5.2",
+        "niv de réponse":"L'activité de la fonction a un impact déterminant tant sur les coûts que sur le bon fonctionnement de la Fondation et les situations générées deviennent fréquemment irréversibles du fait du coût de leur correction.",
+        "sentence":"Assurer la gestion globale et l'amélioration continue du système de management de la qualité de la Fondation",
+        "codeReponse":"B-5.2.4",
+        "score":0.310228914,
+        "pts":28.6416,
+        "similarity":0.6095328121
+    },
+    {
+        "Question":"Autonomie de décision",
+        "codeQuestion":"B-2.1",
+        "niv de réponse":"La fonction approuve, pour une Fondation, les processus d'élaboration et de mise à disposition des prestations d'une\/des institutions",
+        "sentence":"Assurer la gestion globale et l'amélioration continue du système de management de la qualité de la Fondation",
+        "codeReponse":"B-2.1.5",
+        "score":0.5477828979,
+        "pts":117.0,
+        "similarity":0.5646543624
+    },
+    {
+        "Question":"Responsabilités de planification et de réalisation des activités à court terme",
+        "codeQuestion":"B-1.1",
+        "niv de réponse":"La fonction est responsable de l'élaboration et de la mise en oeuvre de plans à court terme. Ceci implique, par exemple, la gestion, l'optimisation et la mise en oeuvre des différentes procédures à instaurer pour réaliser la planification à long terme.",
+        "sentence":"Préparer les revues de direction et assurer le conseil et le suivi de la stratégie et des concepts",
+        "codeReponse":"B-1.1.4",
+        "score":0.5150880814,
+        "pts":61.77599,
+        "similarity":0.5545965345
+    },
+    {
+        "Question":"Durée",
+        "codeQuestion":"A-2.2",
+        "niv de réponse":"Une durée minimum de 1 à 3 ans d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+        "sentence":"Expérience professionnelle de 3 ans minimum dans le domaine",
+        "codeReponse":"A-2.2.2",
+        "score":0.6967458129,
+        "pts":7.8,
+        "similarity":0.5311639133
+    },
+    {
+        "Question":"Impact externe des prestations",
+        "codeQuestion":"B-5.1",
+        "niv de réponse":"La fonction a un rôle primordial dans le choix politique des missions des Fondations membres de l'ANMEA et sur leur évolution stratégique.",
+        "sentence":"Assurer la gestion globale et l'amélioration continue du système de management de la qualité de la Fondation",
+        "codeReponse":"B-5.1.5",
+        "score":0.3859063387,
+        "pts":55.5984,
+        "similarity":0.5229678952
+    },
+    {
+        "Question":"Responsabilités de planification et de réalisation des activités à long terme",
+        "codeQuestion":"B-1.2",
+        "niv de réponse":"La fonction est responsable de l'élaboration et de la mise en oeuvre et\/ou du suivi de plans à long terme. Elle peut prendre part aux différentes recherches et études mises en oeuvre en vue de réalisations futures à longue échéance.",
+        "sentence":"Préparer les revues de direction et assurer le conseil et le suivi de la stratégie et des concepts",
+        "codeReponse":"B-1.2.3",
+        "score":0.4936261177,
+        "pts":23.868,
+        "similarity":0.4893452527
+    },
+    {
+        "Question":"Innovation",
+        "codeQuestion":"D-4.1",
+        "niv de réponse":"L'exercice de la fonction requiert la capacité d'adapter et parfois de créer des processus et\/ou des outils, dans le but d'améliorer la qualité des prestations offertes et\/ou l'organisation du travail.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "codeReponse":"D-4.1.2",
+        "score":0.6361601353,
+        "pts":34.749,
+        "similarity":0.4877466537
+    },
+    {
+        "Question":"Nature des communications internes",
+        "codeQuestion":"C-1.1",
+        "niv de réponse":"Les communications impliquent des échanges d'informations et des négociations sur des sujets complexes dans le cadre de prises de décisions. La fonction nécessite des capacités à négocier, comprendre et gérer différentes perceptions des prestations offertes.",
+        "sentence":"Soutenir les maîtres de processus dans la définition des processus et la rédaction des documents et procédures",
+        "codeReponse":"C-1.1.4",
+        "score":0.4365935326,
+        "pts":66.3,
+        "similarity":0.4474296536
+    },
+    {
+        "Question":"Analyse et synthèse",
+        "codeQuestion":"D-3.1",
+        "niv de réponse":"La fonction requiert la faculté d'analyser des sujets  complexes qui nécessitent une capacité d'interprétation et de synthèse.",
+        "sentence":"Capacité d'analyse et de synthèse",
+        "codeReponse":"D-3.1.3",
+        "score":0.5829800963,
+        "pts":42.757,
+        "similarity":0.4449661786
+    },
+    {
+        "Question":"Responsabilités budgétaires",
+        "codeQuestion":"B-4.1",
+        "niv de réponse":"La fonction participe de manière déterminante à l'élaboration et assure le suivi financier d'un ou de plusieurs budgets.",
+        "sentence":"du système de gestion et de la Fondation dans sa globalité",
+        "codeReponse":"B-4.1.5",
+        "score":0.409172833,
+        "pts":44.928,
+        "similarity":0.4161473215
+    },
+    {
+        "Question":"Nature",
+        "codeQuestion":"A-2.1",
+        "niv de réponse":"La fonction requiert de l'expérience professionnelle préalable.",
+        "sentence":"Expérience professionnelle de 3 ans minimum dans le domaine",
+        "codeReponse":"A-2.1.2",
+        "score":0.7166751623,
+        "pts":11.7,
+        "similarity":0.4031254925
+    },
+    {
+        "Question":"Diversité des missions",
+        "codeQuestion":"D-2.1",
+        "niv de réponse":"L'ensemble des tâches principales qui incombent à la fonction sont diverses et relèvent de 2 à 3 missions différentes.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "codeReponse":"D-2.1.2",
+        "score":0.3588542342,
+        "pts":21.45,
+        "similarity":0.3223713732
+    },
+    {
+        "Question":"Complexité de l'environnement",
+        "codeQuestion":"D-1.1",
+        "niv de réponse":"La fonction fait fréquemment face à un degré important de difficultés, souvent nouvelles, et les situations générées requièrent adaptabilité, flexibilité et initiative.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "codeReponse":"D-1.1.3",
+        "score":0.5025104284,
+        "pts":50.05,
+        "similarity":0.3049102071
+    },
+    {
+        "Question":"Connaissances linguistiques",
+        "codeQuestion":"C-3.1",
+        "niv de réponse":"La fonction requiert des connaissances approfondies (lecture, conversation et rédaction) en français, la lecture et la conversation dans une ou deux langues supplémentaires.",
+        "sentence":"Soutenir les maîtres de processus dans la définition des processus et la rédaction des documents et procédures",
+        "codeReponse":"C-3.1.3",
+        "score":0.3039839566,
+        "pts":6.63,
+        "similarity":0.2759215312
+    },
+    {
+        "Question":"Formation complémentaire",
+        "codeQuestion":"A-1.2",
+        "niv de réponse":"Deux formations complémentaires, ou plus, sont nécessaires pour l'exercice de la fonction.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "codeReponse":"A-1.2.3",
+        "score":0.5159761906,
+        "pts":19.5,
+        "similarity":0.2620314259
+    },
+    {
+        "Question":"Evolution de l'environnement",
+        "codeQuestion":"D-1.2",
+        "niv de réponse":"La fonction s'exerce dans un environnement à évolution rapide qui nécessite de s'adapter rapidement aux processus de travail et aux prestations fournies en suivant un certain nombre de règles prédéfinies.",
+        "sentence":"Assurer la maîtrise des documents du système de management qualité afin de répondre aux normes retenues",
+        "codeReponse":"D-1.2.2",
+        "score":0.4308689833,
+        "pts":27.5275,
+        "similarity":0.2614189769
+    },
+    {
+        "Question":"Nature des communications externes",
+        "codeQuestion":"C-2.1",
+        "niv de réponse":"Les communications impliquent des négociations sur des sujets courants et\/ou élaborés, parfois complexes. La fonction nécessite des capacités à comprendre et à gérer différentes perceptions des sujets traités.",
+        "sentence":"Sens relationnel et de la négociation",
+        "codeReponse":"C-2.1.4",
+        "score":0.5289314389,
+        "pts":82.875,
+        "similarity":0.259412917
+    },
+    {
+        "Question":"Diversité et quantité des postes à gérer",
+        "codeQuestion":"B-3.1",
+        "niv de réponse":"La fonction gère directement un grand nombre de postes (à partir de 8 à 10) qui ont des activités diverses.",
+        "sentence":"Veiller de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste et mettre en œuvre les formations continues et autres démarches nécessaires",
+        "codeReponse":"B-3.1.5",
+        "score":0.3958474994,
+        "pts":56.16,
+        "similarity":0.1893748798
+    },
+    {
+        "Question":"Formation de base",
+        "codeQuestion":"A-1.1",
+        "niv de réponse":"La fonction requiert une formation professionnelle initiale de 2 ans (AFP) ou équivalent.",
+        "sentence":"FORMATION ET EXPERIENCES PROFESSIONNELLES REQUISES",
+        "codeReponse":"A-1.1.2",
+        "score":0.4730933309,
+        "pts":8.645,
+        "similarity":0.1523141552
+    }
+]

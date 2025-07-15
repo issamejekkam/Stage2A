@@ -1,0 +1,142 @@
+[
+    {
+        "title":"Nature",
+        "question":"La fonction requiert de l'expérience professionnelle préalable.",
+        "sentence":"Formation et expériences professionnelles requises",
+        "score":0.782204926,
+        "pts":11.7
+    },
+    {
+        "title":"Responsabilités budgétaires",
+        "question":"La fonction participe de manière déterminante à l'élaboration et assure le suivi financier d'un ou de plusieurs budgets.",
+        "sentence":"Participer à la bonne gestion administrative et financière du budget",
+        "score":0.6809578538,
+        "pts":44.928
+    },
+    {
+        "title":"Rôle dans la gestion des ressources humaines",
+        "question":"Elle a un rôle d'animation incluant le transfert de connaissances et\/ou de formation des collaborateurs\/trices; elle coordonne l'exécution de leurs activités.",
+        "sentence":"la formatrice veille de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste",
+        "score":0.648063302,
+        "pts":11.232
+    },
+    {
+        "title":"Evolution de l'environnement",
+        "question":"La fonction s'exerce dans un environnement à évolution régulière qui nécessite une adaptation aux processus de travail et aux prestations fournies.",
+        "sentence":"la formatrice veille de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste",
+        "score":0.6343545318,
+        "pts":15.015
+    },
+    {
+        "title":"Durée",
+        "question":"Une durée minimum de 1 à 3 ans d'expérience professionnelle est nécessaire à l'exercice de la fonction.",
+        "sentence":"Formation et expériences professionnelles requises",
+        "score":0.6151342988,
+        "pts":7.8
+    },
+    {
+        "title":"Diversité et quantité des postes à gérer",
+        "question":"La fonction n'a pas de postes directement subordonnés.",
+        "sentence":"Fonctions directement subordonnées",
+        "score":0.6121608019,
+        "pts":0.0
+    },
+    {
+        "title":"Responsabilités de planification et de réalisation des activités à court terme",
+        "question":"La fonction participe à l'élaboration et\/ou à la mise en oeuvre de plans à court terme.",
+        "sentence":"en fonction des objectifs liés au projet",
+        "score":0.60211128,
+        "pts":15.444
+    },
+    {
+        "title":"Formation complémentaire",
+        "question":"Deux formations complémentaires, ou plus, sont nécessaires pour l'exercice de la fonction.",
+        "sentence":"et propose les formations continues et autres démarches utiles à l'exercice de ses fonctions",
+        "score":0.5881156921,
+        "pts":19.5
+    },
+    {
+        "title":"Analyse et synthèse",
+        "question":"La fonction requiert la faculté d'analyser des sujets  complexes qui nécessitent une capacité d'interprétation et de synthèse.",
+        "sentence":"recherches et analyse dans un environnement complexe",
+        "score":0.5834608078,
+        "pts":42.757
+    },
+    {
+        "title":"Autonomie de décision",
+        "question":"La fonction approuve, pour une Fondation, les processus d'élaboration et de mise à disposition des prestations d'une\/des institutions",
+        "sentence":"du système de gestion et de la Fondation dans sa globalité",
+        "score":0.5812675953,
+        "pts":117.0
+    },
+    {
+        "title":"Formation de base",
+        "question":"La fonction requiert un Bachelor (Université ou HES) ou équivalent.",
+        "sentence":"Diplôme de travailleur-euse social-e de niveau HES (ou équivalent)",
+        "score":0.5723788738,
+        "pts":20.93
+    },
+    {
+        "title":"Innovation",
+        "question":"L'exercice de la fonction requiert des compétences innovatrices, faisant généralement appel à des concepts nouveaux, et qui conduisent à la création de prestations, à l'organisation des ressources et des processus.",
+        "sentence":"la formatrice veille de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste",
+        "score":0.5719304085,
+        "pts":77.21999
+    },
+    {
+        "title":"Responsabilités de planification et de réalisation des activités à long terme",
+        "question":"La fonction est responsable de l'élaboration et de la mise en oeuvre et\/ou du suivi de plans à long terme. Elle peut prendre part aux différentes recherches et études mises en oeuvre en vue de réalisations futures à longue échéance.",
+        "sentence":"en fonction des objectifs liés au projet",
+        "score":0.5353108048,
+        "pts":23.868
+    },
+    {
+        "title":"Nature des communications internes",
+        "question":"Les interactions impliquent des échanges d'informations sur des sujets courants et\/ou élaborés, parfois complexes, dans le but de préparer des décisions.",
+        "sentence":"Exercer celle-ci en dans une recherche de solutions et de conseils en collaboration avec la famille ou les proches",
+        "score":0.5004749298,
+        "pts":35.36
+    },
+    {
+        "title":"Complexité de l'environnement",
+        "question":"La fonction fait fréquemment face à un degré important de difficultés, souvent nouvelles, et les situations générées requièrent adaptabilité, flexibilité et initiative.",
+        "sentence":"la formatrice veille de sa propre initiative à l'adéquation de ses compétences avec les exigences et besoins évolutifs du poste",
+        "score":0.4839361906,
+        "pts":50.05
+    },
+    {
+        "title":"Impact externe des prestations",
+        "question":"La fonction a un rôle participatif dans la prestation fournie aux bénéficiares de prestations, dans le cadre de procédures standardisées. La qualité des documents\/informations\/prestations qu'elle fournit peut influencer l'image de l'\/des institution\/s et avoir des conséquences sur les bénéfiaires de prestations.",
+        "sentence":"dans le cadre des projets et actions de formation et d'évaluation professionnelle",
+        "score":0.4807097316,
+        "pts":11.11968
+    },
+    {
+        "title":"Diversité des missions",
+        "question":"L'ensemble des tâches principales qui incombent à la fonction sont similaires et relèvent d'une même mission.",
+        "sentence":"toute autre tâche relevant de son champ de compétences peut être requise à la demande du responsable hiérarchique direct",
+        "score":0.4776226282,
+        "pts":8.58
+    },
+    {
+        "title":"Nature des communications externes",
+        "question":"Les communications impliquent des échanges d'informations sur des sujets élaborés et complexes dans un but d'explication.",
+        "sentence":"recherches et analyse dans un environnement complexe",
+        "score":0.4717119634,
+        "pts":60.775
+    },
+    {
+        "title":"Connaissances linguistiques",
+        "question":"La fonction requiert des connaissances linguistiques approfondies (lecture, conversation et rédaction) en français.",
+        "sentence":"la formatrice veille à acquérir de nouvelles connaissances professionnelles (lectures",
+        "score":0.4523835778,
+        "pts":4.42
+    },
+    {
+        "title":"Impact interne des prestations",
+        "question":"L'activité de la fonction a un impact modéré tant sur les coûts que sur le bon fonctionnement de l'\/des institution\/s.",
+        "sentence":"agir comme soutien et facilitateur au sein de l'équipe socio-éducative dans les relations",
+        "score":0.3801004887,
+        "pts":10.02456
+    }
+]
