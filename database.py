@@ -144,3 +144,12 @@ class database:
         """
         query = "INSERT OR IGNORE INTO keywords (keyword, word) VALUES (?, ?)"
         self.execute_query(query, (keyword, word))
+
+    def readAll_matches(self,filename):
+        """
+        Lit tous les matchs depuis la base de données et les retourne sous forme de DataFrame.
+        """
+        query = "SELECT * FROM all_matches WHERE filename = ?"
+        return pd.read_sql_query(query, self.connection, params=(filename,))
+    
+    

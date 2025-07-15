@@ -15,7 +15,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("VbWebForm"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+392db19f2e59ce2651b13c63b59aef1e83ff8545"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+449b0af7e2a061830e13332012c47326ad61f4ef"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("VbWebForm"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("VbWebForm"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")> 
