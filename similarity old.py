@@ -69,14 +69,11 @@ class Similarity:
     ) -> pd.DataFrame:
         """
         Calcule la similarité cosinus et renvoie un DataFrame
-        """ 
-
+        """
 
         q_vecs = self._encode(questions)
         
         s_vecs = self._encode(corpus_sentences)
-
-     
 
         scores = np.matmul(q_vecs, s_vecs.T)  
         topk_idx = scores.argsort(axis=1)[:, -k:][:, ::-1] 

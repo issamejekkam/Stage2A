@@ -48,8 +48,6 @@ class Pretraitement:
 
     def load_questionnaire(self,
                            classe: str = "critereid",
-                           sousClasse: str= "sscritereid",
-                           question: str="questionnombre",
                            title_col: str = "titrequestion",
                            resp_col: str = "reponsedesc",
                            pts: str = "maximumpts") -> pd.DataFrame:
@@ -57,15 +55,13 @@ class Pretraitement:
         Prépare le questionnaire sous forme de DataFrame bien formaté
         """
         df = self.questionnaire
-        expected = {classe,sousClasse,question, title_col, resp_col, pts}
+        expected = {classe, title_col, resp_col, pts}
         if not expected.issubset(df.columns):
             missing = expected - set(df.columns)
             raise ValueError(f"Colonnes manquantes dans le questionnaire : {missing}")
 
-        df = df[[classe,sousClasse,question, title_col, resp_col, pts]].rename(columns={
+        df = df[[classe, title_col, resp_col, pts]].rename(columns={
             classe: "classe",
-            sousClasse: "sousClasse",
-            question: "question",
             title_col: "title",
             resp_col: "response",
             pts: "pts"
@@ -73,18 +69,11 @@ class Pretraitement:
         self.questionnaire_df = df
         return df
 
-    def keep_essential_lines(self, lines: pd.DataFrame,selectedquestionsformodel) -> pd.DataFrame:
+    def keep_abcd_lines(self, lines: pd.DataFrame) -> pd.DataFrame:
         """
-        Garde uniquement les lignes necessaires
+        Garde uniquement les lignes de classe A, B, C ou D
         """
-        
-        selectedquestionsformodel=selectedquestionsformodel.rename(columns={
-            'critereid': 'classe',
-            'sscritereid': 'sousClasse',
-            'questionnombre':'question'})
-        cols_communes=['classe','sousClasse','question']
-        lines=lines.merge(selectedquestionsformodel,on=cols_communes,how='inner')
-        return lines
+        return lines[lines["classe"].isin(["A", "B", "C", "D"])].copy()
 
     def sentencize_cahier(self, min_tokens: int = 2) -> List[str]:
         """

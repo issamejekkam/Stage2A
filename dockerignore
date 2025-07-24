@@ -1,0 +1,10 @@
+**
+
+!Dockerfile
+!evaluateFunction.py
+!results/**
+!database.py
+!pretraitement.py
+!similarity.py
+!log.txt
+!requirementsForEvaluation.txt

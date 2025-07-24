@@ -89,9 +89,7 @@ class database:
                 print(f"❌ Format de fichier non supporté : {filename}")
                 return ""
         else:
-            print("Fichier '{}' non trouvé dans la base de données ni dans ./cahiercharge.".format(
-                filename.encode('ascii', errors='replace').decode('ascii')
-            ))
+            print(f"⚠️ Fichier '{filename}' non trouvé dans la base de données ni dans ./cahiercharge.")
             sys.exit(1)
             return ""
 

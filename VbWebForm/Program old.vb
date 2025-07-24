@@ -1,34 +1,8 @@
 Imports System.Net
 Imports System.Text
 Imports System.IO
-Imports Newtonsoft.json
 
 Module Program
-    Function JsonEscape(value As String) As String
-        If value Is Nothing Then Return """"""
-        Dim sb As New StringBuilder()
-        sb.Append(""""c)
-        For Each c As Char In value
-            Select Case c
-                Case """"c : sb.Append("\""")
-                Case "\"c : sb.Append("\\")
-                Case "/"c : sb.Append("\/")
-                Case ControlChars.Back : sb.Append("\b")
-                Case ControlChars.FormFeed : sb.Append("\f")
-                Case ControlChars.Lf : sb.Append("\n")
-                Case ControlChars.Cr : sb.Append("\r")
-                Case ControlChars.Tab : sb.Append("\t")
-                Case Else
-                    If AscW(c) < 32 Then
-                        sb.AppendFormat("\u{0:x4}", AscW(c))
-                    Else
-                        sb.Append(c)
-                    End If
-            End Select
-        Next
-        sb.Append(""""c)
-        Return sb.ToString()
-    End Function
     Sub Main()
         Dim listener As New HttpListener()
         listener.Prefixes.Add("http://localhost:8080/")
@@ -53,28 +27,18 @@ Module Program
                     Dim kv = pair.Split("="c)
                     If kv.Length = 2 Then
                         formValues(kv(0)) = Uri.UnescapeDataString(kv(1))
-                        formValues(kv(0)) = Uri.UnescapeDataString(kv(1)).Replace("+", " ")
                     End If
                 Next
 
                 ' Construire le JSON
-                Dim jsonBlocks As New List(Of String)
-                For i As Integer = 1 To 3
-                    Dim lexicaleValue As String = "false"
-                    If formValues.ContainsKey("lexicale") Then
-                        lexicaleValue = formValues("lexicale")
-                    End If
-                    Dim jsonBlock As String = "{" &
-                        """filename"":" & JsonEscape(formValues("filename")) & "," &
-                        """posteid"":" & JsonEscape(formValues("posteid")) & "," &
-                        """userid"":" & JsonEscape(formValues("userid")) & "," &
-                        """fonctionPoste"":" & JsonEscape(formValues("fonctionPoste")) & "," &
-                        """lexicale"":" & JsonEscape(lexicaleValue) &
-                    "}"
-                    jsonBlocks.Add(jsonBlock)
-                Next
-                Dim json As String = "[" & String.Join(",", jsonBlocks) & "]"
-                Console.Write(json)
+                Dim json As String = "{" &
+                    """filename"":""" & formValues("filename") & """," &
+                    """posteid"":""" & formValues("posteid") & """," &
+                    """userid"":""" & formValues("userid") & """," &
+                    """fonctionPoste"":""" & formValues("fonctionPoste") & """," &
+                    """lexicale"":""" & If(formValues.ContainsKey("lexicale"), formValues("lexicale"), "false") & """" &
+                "}"
+
                 ' Envoyer à FastAPI
                 Dim apiResult As String = ""
                 Try
